@@ -162,25 +162,28 @@ header {
   padding: 4rem 1.5rem 6rem;
 }
 
-.hero-bg {
+.hero-video {
   position: absolute;
   inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
   z-index: 0;
-  background:
-    linear-gradient(180deg, rgba(4, 17, 29, 0.55) 0%, rgba(4, 17, 29, 0.85) 100%),
-    linear-gradient(135deg, #1e3a52 0%, #2a4a68 50%, #1a3045 100%);
+  pointer-events: none;
 }
 
-.hero-bg::before {
-  content: '';
+.hero-overlay {
   position: absolute;
   inset: 0;
+  z-index: 1;
   background:
-    radial-gradient(ellipse 60% 50% at 30% 20%, rgba(125, 211, 232, 0.18), transparent 60%),
-    radial-gradient(ellipse 60% 50% at 70% 80%, rgba(125, 211, 232, 0.1), transparent 60%);
+    radial-gradient(ellipse 60% 50% at 30% 20%, rgba(125, 211, 232, 0.15), transparent 60%),
+    radial-gradient(ellipse 60% 50% at 70% 80%, rgba(4, 17, 29, 0.4), transparent 60%),
+    linear-gradient(180deg, rgba(4, 17, 29, 0.55) 0%, rgba(4, 17, 29, 0.7) 60%, rgba(4, 17, 29, 0.9) 100%);
 }
 
-.hero-bg::after {
+.hero-overlay::after {
   content: '';
   position: absolute;
   inset: 0;
@@ -189,6 +192,7 @@ header {
     linear-gradient(90deg, rgba(255, 255, 255, 0.025) 1px, transparent 1px);
   background-size: 60px 60px;
   mask-image: radial-gradient(ellipse 80% 70% at 50% 50%, black, transparent 80%);
+  pointer-events: none;
 }
 
 .hero-content {
@@ -428,6 +432,14 @@ header {
   inset: 0;
   background-size: cover;
   background-position: center;
+  overflow: hidden;
+}
+.service-img-inner svg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  display: block;
 }
 
 .service-img-tag {
@@ -745,6 +757,14 @@ header {
   inset: 0;
   background-size: cover;
   background-position: center;
+  overflow: hidden;
+}
+.ba-img svg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  display: block;
 }
 
 .ba-img.after { clip-path: inset(0 0 0 50%); }
@@ -862,6 +882,14 @@ header {
   inset: 0;
   background-size: cover;
   background-position: center;
+  overflow: hidden;
+}
+.job-frame-bg svg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  display: block;
 }
 
 .job-caption {
@@ -893,6 +921,26 @@ header {
   justify-content: center;
   color: var(--white);
   border: 1px solid rgba(255, 255, 255, 0.15);
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.job-mute:hover { background: rgba(125, 211, 232, 0.4); }
+
+.job-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.5rem;
+}
+
+.job-video {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  background: var(--ink);
 }
 
 /* ============ INSTAGRAM SECTION ============ */
@@ -1313,6 +1361,7 @@ footer {
   .footer-grid { display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 3rem; }
   .props-ctas { flex-direction: row; }
   .props-ctas .btn-sky, .props-ctas .btn-outline { width: auto; }
+  .job-grid { grid-template-columns: repeat(2, 1fr); }
 }
 
 @media (min-width: 1024px) {
@@ -1320,6 +1369,7 @@ footer {
   .section { padding: 7rem 2rem; }
   .ig-section { padding: 7rem 2rem; }
   .hero { padding: 6rem 2rem 8rem; }
+  .job-grid { grid-template-columns: repeat(4, 1fr); }
 }
 </style>
 </head>
@@ -1363,7 +1413,10 @@ footer {
 
 <!-- ============ HERO ============ -->
 <section class="hero">
-  <div class="hero-bg"></div>
+  <video class="hero-video" autoplay muted loop playsinline preload="auto" poster="">
+    <source src="https://res.cloudinary.com/dycutbccb/video/upload/v1778450241/SnapInsta.to_AQPcWfBfyd0DGgU3icGMJgijRnXFS5ORpfiLzKgvIIvdkWMDSosT9r-e_BeufzoPp-5_B29X9p2xvuQ7_OEkZdEr8NzqLPrah-WePlE_gw8xev.mp4" type="video/mp4">
+  </video>
+  <div class="hero-overlay"></div>
   <div class="hero-content">
     <span class="chip">
       <span class="chip-dot"></span>
@@ -1396,7 +1449,7 @@ footer {
     <div class="service-grid">
       <article class="service-card">
         <div class="service-img">
-          <div class="service-img-inner" style="background-image: linear-gradient(135deg, #8a9aa8 0%, #6b7d8e 100%);"></div>
+          <div class="service-img-inner" style="position:absolute;inset:0;overflow:hidden;"><svg width="100%" height="100%" style="display:block;" viewBox="0 0 800 600" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice"> <defs> <linearGradient id="sky1" x1="0" y1="0" x2="0" y2="1"> <stop offset="0%" stop-color="#7fb3d4"/> <stop offset="100%" stop-color="#cde4ee"/> </linearGradient> <linearGradient id="siding1" x1="0" y1="0" x2="0" y2="1"> <stop offset="0%" stop-color="#e8e8e0"/> <stop offset="100%" stop-color="#c4c4b8"/> </linearGradient> <linearGradient id="roof1" x1="0" y1="0" x2="0" y2="1"> <stop offset="0%" stop-color="#4a5560"/> <stop offset="100%" stop-color="#2e3640"/> </linearGradient> <pattern id="sidinglines" width="80" height="14" patternUnits="userSpaceOnUse"> <rect width="80" height="14" fill="url(#siding1)"/> <line x1="0" y1="13" x2="80" y2="13" stroke="#a8a89c" stroke-width="0.8"/> </pattern> <radialGradient id="mist1" cx="0.2" cy="0.55" r="0.35"> <stop offset="0%" stop-color="rgba(255,255,255,0.55)"/> <stop offset="100%" stop-color="rgba(255,255,255,0)"/> </radialGradient> </defs> <!-- sky --> <rect width="800" height="380" fill="url(#sky1)"/> <!-- distant trees --> <ellipse cx="80" cy="380" rx="120" ry="55" fill="#4a6648" opacity="0.7"/> <ellipse cx="720" cy="380" rx="140" ry="60" fill="#3d5a3b" opacity="0.65"/> <!-- grass --> <rect y="370" width="800" height="230" fill="#5d7a4f"/> <rect y="370" width="800" height="230" fill="url(#mist1)"/> <!-- house body --> <rect x="180" y="200" width="500" height="240" fill="url(#sidinglines)"/> <!-- roof --> <polygon points="160,200 430,80 700,200" fill="url(#roof1)"/> <polygon points="160,200 430,80 700,200 680,210 430,95 180,210" fill="#1f262e" opacity="0.5"/> <!-- chimney --> <rect x="560" y="100" width="38" height="80" fill="#8b3a2a"/> <rect x="558" y="98" width="42" height="8" fill="#6b2a1d"/> <!-- windows --> <rect x="220" y="240" width="80" height="100" fill="#2c4356" stroke="#ffffff" stroke-width="5"/> <line x1="260" y1="240" x2="260" y2="340" stroke="#ffffff" stroke-width="3"/> <line x1="220" y1="290" x2="300" y2="290" stroke="#ffffff" stroke-width="3"/> <rect x="370" y="240" width="80" height="100" fill="#2c4356" stroke="#ffffff" stroke-width="5"/> <line x1="410" y1="240" x2="410" y2="340" stroke="#ffffff" stroke-width="3"/> <line x1="370" y1="290" x2="450" y2="290" stroke="#ffffff" stroke-width="3"/> <rect x="520" y="240" width="80" height="100" fill="#2c4356" stroke="#ffffff" stroke-width="5"/> <line x1="560" y1="240" x2="560" y2="340" stroke="#ffffff" stroke-width="3"/> <line x1="520" y1="290" x2="600" y2="290" stroke="#ffffff" stroke-width="3"/> <!-- door area shadow --> <rect x="295" y="370" width="70" height="70" fill="#3a4248"/> <!-- foundation --> <rect x="180" y="430" width="500" height="14" fill="#5e6064"/> <!-- mist/water spray on left side of house --> <ellipse cx="180" cy="320" rx="80" ry="120" fill="rgba(255,255,255,0.4)"/> <ellipse cx="170" cy="280" rx="50" ry="80" fill="rgba(255,255,255,0.5)"/> <!-- water droplets --> <circle cx="155" cy="265" r="3" fill="#ffffff" opacity="0.85"/> <circle cx="145" cy="290" r="2.5" fill="#ffffff" opacity="0.8"/> <circle cx="165" cy="310" r="2" fill="#ffffff" opacity="0.7"/> <circle cx="135" cy="340" r="3" fill="#ffffff" opacity="0.85"/> <circle cx="175" cy="360" r="2" fill="#ffffff" opacity="0.7"/> <circle cx="200" cy="280" r="2" fill="#ffffff" opacity="0.8"/> <circle cx="210" cy="310" r="1.8" fill="#ffffff" opacity="0.7"/> <circle cx="225" cy="340" r="2.5" fill="#ffffff" opacity="0.8"/> <!-- shrub in foreground --> <ellipse cx="600" cy="450" rx="50" ry="20" fill="#3a5a36"/> <ellipse cx="600" cy="438" rx="42" ry="22" fill="#4a6e44"/> <ellipse cx="585" cy="425" rx="20" ry="12" fill="#5a8050"/> </svg></div>
           <span class="service-img-tag">Soft Wash · Plant Safe</span>
         </div>
         <div class="service-body">
@@ -1408,7 +1461,7 @@ footer {
 
       <article class="service-card">
         <div class="service-img">
-          <div class="service-img-inner" style="background-image: linear-gradient(135deg, #4a5d6e 0%, #2e3e4d 100%);"></div>
+          <div class="service-img-inner" style="position:absolute;inset:0;overflow:hidden;"><svg width="100%" height="100%" style="display:block;" viewBox="0 0 800 600" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice"> <defs> <linearGradient id="sky2" x1="0" y1="0" x2="0" y2="1"> <stop offset="0%" stop-color="#94c1d8"/> <stop offset="100%" stop-color="#d6e6ee"/> </linearGradient> <linearGradient id="concrete" x1="0" y1="0" x2="0" y2="1"> <stop offset="0%" stop-color="#a8a8a0"/> <stop offset="50%" stop-color="#8e8e84"/> <stop offset="100%" stop-color="#5a5a52"/> </linearGradient> <linearGradient id="cleanstrip" x1="0" y1="0" x2="0" y2="1"> <stop offset="0%" stop-color="#e8e6dc"/> <stop offset="100%" stop-color="#c8c6bc"/> </linearGradient> </defs> <rect width="800" height="220" fill="url(#sky2)"/> <!-- distant garage / house --> <rect x="180" y="120" width="440" height="120" fill="#bcb8a8"/> <polygon points="180,120 400,60 620,120" fill="#5a4338"/> <!-- garage doors --> <rect x="260" y="140" width="100" height="100" fill="#3d3530" stroke="#2a2520" stroke-width="2"/> <rect x="440" y="140" width="100" height="100" fill="#3d3530" stroke="#2a2520" stroke-width="2"/> <!-- ground area --> <rect y="210" width="800" height="390" fill="#7d8a5a"/> <!-- driveway perspective --> <polygon points="220,210 580,210 760,600 40,600" fill="url(#concrete)"/> <!-- clean strip down the middle --> <polygon points="380,210 420,210 540,600 260,600" fill="url(#cleanstrip)"/> <!-- expansion joints --> <line x1="240" y1="320" x2="560" y2="320" stroke="#6a6a60" stroke-width="2" opacity="0.5"/> <line x1="190" y1="430" x2="610" y2="430" stroke="#6a6a60" stroke-width="2" opacity="0.5"/> <line x1="120" y1="540" x2="680" y2="540" stroke="#6a6a60" stroke-width="2" opacity="0.5"/> <!-- dirty patches outside clean strip --> <ellipse cx="180" cy="500" rx="60" ry="22" fill="#3a3a32" opacity="0.4"/> <ellipse cx="640" cy="480" rx="60" ry="22" fill="#3a3a32" opacity="0.4"/> <ellipse cx="280" cy="380" rx="35" ry="14" fill="#4a4a42" opacity="0.45"/> <ellipse cx="540" cy="340" rx="30" ry="12" fill="#4a4a42" opacity="0.4"/> <!-- surface cleaner machine - circular disk being pushed --> <ellipse cx="400" cy="430" rx="55" ry="14" fill="#1a3a4a"/> <ellipse cx="400" cy="425" rx="55" ry="14" fill="#2a5a6e"/> <rect x="395" y="380" width="10" height="50" fill="#2a3a4a"/> <rect x="370" y="370" width="60" height="14" rx="3" fill="#1a2a3a"/> <!-- water spray under the cleaner --> <ellipse cx="400" cy="448" rx="65" ry="6" fill="#ffffff" opacity="0.55"/> <ellipse cx="400" cy="455" rx="80" ry="4" fill="#ffffff" opacity="0.35"/> <!-- droplets around machine --> <circle cx="340" cy="450" r="2" fill="#ffffff" opacity="0.8"/> <circle cx="460" cy="448" r="2.5" fill="#ffffff" opacity="0.8"/> <circle cx="350" cy="460" r="1.8" fill="#ffffff" opacity="0.7"/> <circle cx="450" cy="462" r="2" fill="#ffffff" opacity="0.75"/> <circle cx="380" cy="465" r="1.5" fill="#ffffff" opacity="0.7"/> <!-- garden bed left --> <rect y="200" width="35" height="50" fill="#3a5a30" opacity="0.7"/> <ellipse cx="20" cy="225" rx="25" ry="18" fill="#5a8a4a"/> <ellipse cx="35" cy="240" rx="20" ry="14" fill="#4a7a3e"/> </svg></div>
           <span class="service-img-tag">Concrete · Pavers</span>
         </div>
         <div class="service-body">
@@ -1420,7 +1473,7 @@ footer {
 
       <article class="service-card">
         <div class="service-img">
-          <div class="service-img-inner" style="background-image: linear-gradient(135deg, #5a4a3e 0%, #3a2e26 100%);"></div>
+          <div class="service-img-inner" style="position:absolute;inset:0;overflow:hidden;"><svg width="100%" height="100%" style="display:block;" viewBox="0 0 800 600" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice"> <defs> <linearGradient id="sky3" x1="0" y1="0" x2="0" y2="1"> <stop offset="0%" stop-color="#f4d4a6"/> <stop offset="100%" stop-color="#f8e8ce"/> </linearGradient> <linearGradient id="brick" x1="0" y1="0" x2="0" y2="1"> <stop offset="0%" stop-color="#c47852"/> <stop offset="100%" stop-color="#8e4a30"/> </linearGradient> <pattern id="brickpat" width="60" height="30" patternUnits="userSpaceOnUse"> <rect width="60" height="30" fill="url(#brick)"/> <rect width="58" height="13" x="1" y="1" fill="#a85e3c" opacity="0.55"/> <rect width="28" height="13" x="1" y="16" fill="#a85e3c" opacity="0.55"/> <rect width="28" height="13" x="31" y="16" fill="#a85e3c" opacity="0.55"/> </pattern> </defs> <!-- sky with warm light --> <rect width="800" height="280" fill="url(#sky3)"/> <!-- house wall in background --> <rect x="0" y="100" width="800" height="200" fill="#d8c9a8"/> <!-- pergola / overhead beams --> <rect y="100" width="800" height="14" fill="#4a3528"/> <rect x="100" y="100" width="14" height="180" fill="#4a3528"/> <rect x="300" y="100" width="14" height="180" fill="#4a3528"/> <rect x="500" y="100" width="14" height="180" fill="#4a3528"/> <rect x="700" y="100" width="14" height="180" fill="#4a3528"/> <!-- brick patio with perspective --> <polygon points="0,280 800,280 800,600 0,600" fill="url(#brickpat)"/> <!-- shadowed area on right (dirty) --> <polygon points="500,280 800,280 800,600 580,600" fill="#3a2620" opacity="0.35"/> <!-- patio furniture - wicker chair --> <ellipse cx="180" cy="500" rx="55" ry="14" fill="#1a1a1a" opacity="0.3"/> <rect x="138" y="400" width="80" height="100" rx="14" fill="#c4a880"/> <rect x="138" y="395" width="80" height="14" rx="6" fill="#a48860"/> <rect x="150" y="420" width="56" height="60" fill="#e8d8b4" opacity="0.6"/> <!-- second chair --> <ellipse cx="320" cy="500" rx="55" ry="14" fill="#1a1a1a" opacity="0.3"/> <rect x="278" y="400" width="80" height="100" rx="14" fill="#c4a880"/> <rect x="278" y="395" width="80" height="14" rx="6" fill="#a48860"/> <rect x="290" y="420" width="56" height="60" fill="#e8d8b4" opacity="0.6"/> <!-- small table with plant --> <rect x="400" y="440" width="70" height="60" fill="#b89870"/> <ellipse cx="435" cy="438" rx="22" ry="10" fill="#5a3520"/> <rect x="420" y="380" width="30" height="60" fill="#5a3520"/> <!-- plant leaves --> <ellipse cx="430" cy="370" rx="14" ry="22" fill="#4a7a3e" transform="rotate(-20 430 370)"/> <ellipse cx="445" cy="370" rx="14" ry="22" fill="#5a8a48" transform="rotate(20 445 370)"/> <ellipse cx="437" cy="358" rx="12" ry="18" fill="#5a8a48"/> <ellipse cx="425" cy="362" rx="10" ry="16" fill="#3a6a32" transform="rotate(-35 425 362)"/> <!-- potted plant right --> <rect x="600" y="440" width="60" height="80" fill="#8a5a3a"/> <ellipse cx="630" cy="438" rx="32" ry="10" fill="#5a3520"/> <ellipse cx="615" cy="400" rx="15" ry="35" fill="#4a7a3e" transform="rotate(-15 615 400)"/> <ellipse cx="645" cy="400" rx="15" ry="35" fill="#5a8a48" transform="rotate(15 645 400)"/> <ellipse cx="630" cy="380" rx="14" ry="30" fill="#5a8a48"/> <!-- water/clean sheen on left half of patio --> <polygon points="0,280 500,280 460,600 0,600" fill="#ffffff" opacity="0.12"/> </svg></div>
           <span class="service-img-tag">Wood · Stone</span>
         </div>
         <div class="service-body">
@@ -1532,8 +1585,8 @@ footer {
         <span class="tag">Soft Wash</span>
       </div>
       <div class="ba-frame" data-ba>
-        <div class="ba-img before" style="background: linear-gradient(135deg, #4a5b4a, #2d3a2d);"></div>
-        <div class="ba-img after" style="background: linear-gradient(135deg, #a8c0d4, #6e8aa0);"></div>
+        <div class="ba-img before"><svg width="100%" height="100%" style="display:block;" viewBox="0 0 800 600" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice"> <defs> <linearGradient id="dirtysky" x1="0" y1="0" x2="0" y2="1"> <stop offset="0%" stop-color="#6b7888"/> <stop offset="100%" stop-color="#8a9290"/> </linearGradient> <linearGradient id="dirtysiding" x1="0" y1="0" x2="0" y2="1"> <stop offset="0%" stop-color="#8a8c80"/> <stop offset="100%" stop-color="#5a5e54"/> </linearGradient> <pattern id="dirtypat" width="80" height="14" patternUnits="userSpaceOnUse"> <rect width="80" height="14" fill="url(#dirtysiding)"/> <line x1="0" y1="13" x2="80" y2="13" stroke="#3a3e34" stroke-width="0.8"/> </pattern> <radialGradient id="mold" cx="0.3" cy="0.6" r="0.6"> <stop offset="0%" stop-color="rgba(40,55,30,0.55)"/> <stop offset="60%" stop-color="rgba(40,55,30,0.25)"/> <stop offset="100%" stop-color="rgba(40,55,30,0)"/> </radialGradient> <radialGradient id="mold2" cx="0.7" cy="0.4" r="0.5"> <stop offset="0%" stop-color="rgba(20,35,15,0.5)"/> <stop offset="100%" stop-color="rgba(20,35,15,0)"/> </radialGradient> </defs> <rect width="800" height="600" fill="url(#dirtypat)"/> <rect width="800" height="600" fill="url(#mold)"/> <rect width="800" height="600" fill="url(#mold2)"/> <!-- algae streaks --> <path d="M 150 0 Q 145 200 160 400 T 170 600" stroke="#3a4a28" stroke-width="20" fill="none" opacity="0.55"/> <path d="M 320 0 Q 325 150 315 350 T 320 600" stroke="#2a3a20" stroke-width="14" fill="none" opacity="0.5"/> <path d="M 500 0 Q 495 180 510 380 T 505 600" stroke="#3a4a28" stroke-width="22" fill="none" opacity="0.45"/> <path d="M 680 0 Q 685 220 670 420 T 680 600" stroke="#2a3a20" stroke-width="16" fill="none" opacity="0.5"/> <!-- dark splotches --> <ellipse cx="220" cy="180" rx="60" ry="40" fill="#2a3520" opacity="0.4"/> <ellipse cx="600" cy="380" rx="80" ry="50" fill="#2a3520" opacity="0.45"/> <ellipse cx="380" cy="500" rx="70" ry="35" fill="#3a3528" opacity="0.5"/> <!-- window --> <rect x="270" y="220" width="100" height="140" fill="#1a2025" stroke="#7a7a70" stroke-width="6"/> <line x1="320" y1="220" x2="320" y2="360" stroke="#7a7a70" stroke-width="3"/> <line x1="270" y1="290" x2="370" y2="290" stroke="#7a7a70" stroke-width="3"/> <rect x="450" y="220" width="100" height="140" fill="#1a2025" stroke="#7a7a70" stroke-width="6"/> <line x1="500" y1="220" x2="500" y2="360" stroke="#7a7a70" stroke-width="3"/> <line x1="450" y1="290" x2="550" y2="290" stroke="#7a7a70" stroke-width="3"/> </svg></div>
+        <div class="ba-img after"><svg width="100%" height="100%" style="display:block;" viewBox="0 0 800 600" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice"> <defs> <linearGradient id="cleansky" x1="0" y1="0" x2="0" y2="1"> <stop offset="0%" stop-color="#7fbed9"/> <stop offset="100%" stop-color="#c8e2ed"/> </linearGradient> <linearGradient id="cleansiding" x1="0" y1="0" x2="0" y2="1"> <stop offset="0%" stop-color="#f0eee2"/> <stop offset="100%" stop-color="#d4d0c0"/> </linearGradient> <pattern id="cleanpat" width="80" height="14" patternUnits="userSpaceOnUse"> <rect width="80" height="14" fill="url(#cleansiding)"/> <line x1="0" y1="13" x2="80" y2="13" stroke="#b0ad9c" stroke-width="0.8"/> </pattern> </defs> <rect width="800" height="600" fill="url(#cleanpat)"/> <!-- subtle gleam highlight --> <rect x="100" y="0" width="200" height="600" fill="#ffffff" opacity="0.15"/> <!-- window --> <rect x="270" y="220" width="100" height="140" fill="#3a5a78" stroke="#ffffff" stroke-width="6"/> <line x1="320" y1="220" x2="320" y2="360" stroke="#ffffff" stroke-width="3"/> <line x1="270" y1="290" x2="370" y2="290" stroke="#ffffff" stroke-width="3"/> <!-- window reflection --> <polygon points="275,225 320,225 295,290 275,290" fill="#ffffff" opacity="0.25"/> <rect x="450" y="220" width="100" height="140" fill="#3a5a78" stroke="#ffffff" stroke-width="6"/> <line x1="500" y1="220" x2="500" y2="360" stroke="#ffffff" stroke-width="3"/> <line x1="450" y1="290" x2="550" y2="290" stroke="#ffffff" stroke-width="3"/> <polygon points="455,225 500,225 475,290 455,290" fill="#ffffff" opacity="0.25"/> </svg></div>
         <span class="ba-label before">Before</span>
         <span class="ba-label after">After</span>
         <div class="ba-handle"></div>
@@ -1550,8 +1603,8 @@ footer {
         <span class="tag">Surface Clean</span>
       </div>
       <div class="ba-frame" data-ba>
-        <div class="ba-img before" style="background: linear-gradient(135deg, #5a5550, #36312c);"></div>
-        <div class="ba-img after" style="background: linear-gradient(135deg, #d4cab5, #9a8e75);"></div>
+        <div class="ba-img before"><svg width="100%" height="100%" style="display:block;" viewBox="0 0 800 600" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice"> <defs> <linearGradient id="ddrive" x1="0" y1="0" x2="0" y2="1"> <stop offset="0%" stop-color="#5a5a52"/> <stop offset="100%" stop-color="#383830"/> </linearGradient> </defs> <rect width="800" height="600" fill="url(#ddrive)"/> <!-- darkening overlay --> <rect width="800" height="600" fill="#1a1a14" opacity="0.4"/> <!-- expansion joints --> <line x1="0" y1="180" x2="800" y2="180" stroke="#1a1a14" stroke-width="3" opacity="0.7"/> <line x1="0" y1="380" x2="800" y2="380" stroke="#1a1a14" stroke-width="3" opacity="0.7"/> <!-- oil stains --> <ellipse cx="220" cy="280" rx="80" ry="50" fill="#0a0a06" opacity="0.7"/> <ellipse cx="240" cy="290" rx="50" ry="30" fill="#000000" opacity="0.8"/> <!-- tire marks --> <rect x="500" y="100" width="40" height="500" fill="#0a0a06" opacity="0.5"/> <rect x="620" y="100" width="40" height="500" fill="#0a0a06" opacity="0.45"/> <!-- mold/algae --> <ellipse cx="100" cy="450" rx="90" ry="40" fill="#2a3520" opacity="0.55"/> <ellipse cx="700" cy="500" rx="100" ry="50" fill="#2a3520" opacity="0.5"/> <ellipse cx="380" cy="520" rx="120" ry="35" fill="#3a4528" opacity="0.4"/> <!-- general grime spots --> <circle cx="150" cy="150" r="20" fill="#0a0a06" opacity="0.4"/> <circle cx="650" cy="180" r="25" fill="#0a0a06" opacity="0.35"/> <circle cx="350" cy="340" r="18" fill="#0a0a06" opacity="0.4"/> <circle cx="550" cy="280" r="22" fill="#0a0a06" opacity="0.35"/> <!-- concrete grain noise dots --> <g opacity="0.3"> <circle cx="50" cy="50" r="1.5" fill="#000"/> <circle cx="120" cy="80" r="1" fill="#000"/> <circle cx="200" cy="120" r="1.5" fill="#000"/> <circle cx="290" cy="60" r="1" fill="#000"/> <circle cx="400" cy="100" r="1.5" fill="#000"/> <circle cx="500" cy="200" r="1" fill="#000"/> <circle cx="600" cy="250" r="1.5" fill="#000"/> <circle cx="700" cy="320" r="1" fill="#000"/> <circle cx="80" cy="400" r="1.5" fill="#000"/> <circle cx="180" cy="450" r="1" fill="#000"/> <circle cx="280" cy="500" r="1.5" fill="#000"/> <circle cx="400" cy="450" r="1" fill="#000"/> <circle cx="500" cy="550" r="1.5" fill="#000"/> <circle cx="600" cy="500" r="1" fill="#000"/> <circle cx="730" cy="450" r="1.5" fill="#000"/> </g> </svg></div>
+        <div class="ba-img after"><svg width="100%" height="100%" style="display:block;" viewBox="0 0 800 600" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice"> <defs> <linearGradient id="cdrive" x1="0" y1="0" x2="0" y2="1"> <stop offset="0%" stop-color="#d8d4c4"/> <stop offset="100%" stop-color="#b0aca0"/> </linearGradient> </defs> <rect width="800" height="600" fill="url(#cdrive)"/> <!-- subtle lighter sheen --> <rect width="800" height="200" fill="#ffffff" opacity="0.15"/> <!-- expansion joints crisp --> <line x1="0" y1="180" x2="800" y2="180" stroke="#8a8678" stroke-width="2"/> <line x1="0" y1="380" x2="800" y2="380" stroke="#8a8678" stroke-width="2"/> <!-- light concrete texture --> <g opacity="0.18"> <circle cx="80" cy="80" r="1.5" fill="#5a5448"/> <circle cx="160" cy="120" r="1" fill="#5a5448"/> <circle cx="240" cy="160" r="1.5" fill="#5a5448"/> <circle cx="320" cy="90" r="1" fill="#5a5448"/> <circle cx="420" cy="140" r="1.5" fill="#5a5448"/> <circle cx="520" cy="240" r="1" fill="#5a5448"/> <circle cx="620" cy="290" r="1.5" fill="#5a5448"/> <circle cx="720" cy="350" r="1" fill="#5a5448"/> <circle cx="100" cy="430" r="1.5" fill="#5a5448"/> <circle cx="200" cy="480" r="1" fill="#5a5448"/> <circle cx="300" cy="530" r="1.5" fill="#5a5448"/> <circle cx="420" cy="480" r="1" fill="#5a5448"/> <circle cx="520" cy="560" r="1.5" fill="#5a5448"/> <circle cx="620" cy="510" r="1" fill="#5a5448"/> <circle cx="730" cy="450" r="1.5" fill="#5a5448"/> <circle cx="50" cy="250" r="1" fill="#5a5448"/> <circle cx="380" cy="320" r="1.5" fill="#5a5448"/> <circle cx="660" cy="420" r="1" fill="#5a5448"/> </g> <!-- wet sheen ribbon (just finished) --> <ellipse cx="500" cy="400" rx="200" ry="40" fill="#ffffff" opacity="0.18"/> </svg></div>
         <span class="ba-label before">Before</span>
         <span class="ba-label after">After</span>
         <div class="ba-handle"></div>
@@ -1568,8 +1621,8 @@ footer {
         <span class="tag">Brick · Stone</span>
       </div>
       <div class="ba-frame" data-ba>
-        <div class="ba-img before" style="background: linear-gradient(135deg, #4d4438, #2e2820);"></div>
-        <div class="ba-img after" style="background: linear-gradient(135deg, #b87858, #8a5440);"></div>
+        <div class="ba-img before"><svg width="100%" height="100%" style="display:block;" viewBox="0 0 800 600" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice"> <defs> <pattern id="brickdirty" width="60" height="30" patternUnits="userSpaceOnUse"> <rect width="60" height="30" fill="#6a4a38"/> <rect width="58" height="13" x="1" y="1" fill="#5a3a28"/> <rect width="28" height="13" x="1" y="16" fill="#5a3a28"/> <rect width="28" height="13" x="31" y="16" fill="#5a3a28"/> </pattern> </defs> <rect width="800" height="600" fill="url(#brickdirty)"/> <!-- dark grime overlay --> <rect width="800" height="600" fill="#1a1410" opacity="0.45"/> <!-- moss/algae patches --> <ellipse cx="150" cy="200" rx="100" ry="60" fill="#2a3a1a" opacity="0.6"/> <ellipse cx="600" cy="400" rx="140" ry="80" fill="#2a3a1a" opacity="0.55"/> <ellipse cx="380" cy="500" rx="180" ry="50" fill="#2a3a1a" opacity="0.4"/> <ellipse cx="80" cy="500" rx="80" ry="40" fill="#1a2a14" opacity="0.6"/> <!-- weeds in cracks --> <g opacity="0.7"> <path d="M 200 320 Q 198 305 195 290" stroke="#4a6a30" stroke-width="2" fill="none"/> <path d="M 200 320 Q 203 308 207 293" stroke="#4a6a30" stroke-width="2" fill="none"/> <path d="M 480 230 Q 478 215 475 200" stroke="#4a6a30" stroke-width="2" fill="none"/> <path d="M 480 230 Q 484 215 488 200" stroke="#4a6a30" stroke-width="2" fill="none"/> <path d="M 650 350 Q 648 335 645 320" stroke="#4a6a30" stroke-width="2" fill="none"/> <path d="M 650 350 Q 653 335 657 320" stroke="#4a6a30" stroke-width="2" fill="none"/> <path d="M 100 410 Q 98 395 95 380" stroke="#4a6a30" stroke-width="2" fill="none"/> <path d="M 100 410 Q 103 395 107 380" stroke="#4a6a30" stroke-width="2" fill="none"/> </g> </svg></div>
+        <div class="ba-img after"><svg width="100%" height="100%" style="display:block;" viewBox="0 0 800 600" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice"> <defs> <linearGradient id="brick" x1="0" y1="0" x2="0" y2="1"> <stop offset="0%" stop-color="#d68662"/> <stop offset="100%" stop-color="#a85a3a"/> </linearGradient> <pattern id="brickclean" width="60" height="30" patternUnits="userSpaceOnUse"> <rect width="60" height="30" fill="url(#brick)"/> <rect width="58" height="13" x="1" y="1" fill="#c47a52" opacity="0.65"/> <rect width="28" height="13" x="1" y="16" fill="#c47a52" opacity="0.65"/> <rect width="28" height="13" x="31" y="16" fill="#c47a52" opacity="0.65"/> </pattern> </defs> <rect width="800" height="600" fill="url(#brickclean)"/> <!-- warm sun sheen --> <rect width="800" height="200" fill="#ffe2c4" opacity="0.2"/> <!-- wet sheen highlight --> <ellipse cx="400" cy="380" rx="280" ry="80" fill="#ffffff" opacity="0.15"/> <ellipse cx="200" cy="200" rx="150" ry="50" fill="#ffffff" opacity="0.12"/> </svg></div>
         <span class="ba-label before">Before</span>
         <span class="ba-label after">After</span>
         <div class="ba-handle"></div>
@@ -1586,17 +1639,72 @@ footer {
     <h2>Real Jobs. <span class="sky">Real Results.</span></h2>
     <p class="lede">Pulled straight from the job site — no edits, no filters. Volume up for the satisfying part.</p>
 
-    <div class="job-card">
-      <div class="job-tag-row">
-        <span class="job-tag">01 <span class="dot">·</span> Townhome <span class="dot">·</span> Maryland</span>
+    <div class="job-grid">
+
+      <div class="job-card">
+        <div class="job-tag-row">
+          <span class="job-tag">01 <span class="dot">·</span> Townhome <span class="dot">·</span> Maryland</span>
+        </div>
+        <div class="job-frame">
+          <video class="job-video" autoplay muted loop playsinline preload="metadata">
+            <source src="https://res.cloudinary.com/dycutbccb/video/upload/v1778450241/SnapInsta.to_AQPcWfBfyd0DGgU3icGMJgijRnXFS5ORpfiLzKgvIIvdkWMDSosT9r-e_BeufzoPp-5_B29X9p2xvuQ7_OEkZdEr8NzqLPrah-WePlE_gw8xev.mp4" type="video/mp4">
+          </video>
+          <span class="job-caption">Driveway Strip Pass</span>
+          <button class="job-mute" aria-label="Unmute" data-mute-toggle>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="width: 18px; height: 18px;" data-icon-muted><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/><line x1="23" y1="9" x2="17" y2="15"/><line x1="17" y1="9" x2="23" y2="15"/></svg>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="width: 18px; height: 18px; display:none;" data-icon-unmuted><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/><path d="M15.54 8.46a5 5 0 0 1 0 7.07"/><path d="M19.07 4.93a10 10 0 0 1 0 14.14"/></svg>
+          </button>
+        </div>
       </div>
-      <div class="job-frame">
-        <div class="job-frame-bg" style="background: linear-gradient(180deg, #3a5870, #1a2d3e);"></div>
-        <span class="job-caption">Driveway Strip Pass</span>
-        <button class="job-mute" aria-label="Unmute">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="width: 18px; height: 18px;"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/><line x1="23" y1="9" x2="17" y2="15"/><line x1="17" y1="9" x2="23" y2="15"/></svg>
-        </button>
+
+      <div class="job-card">
+        <div class="job-tag-row">
+          <span class="job-tag">02 <span class="dot">·</span> Siding <span class="dot">·</span> Maryland</span>
+        </div>
+        <div class="job-frame">
+          <video class="job-video" autoplay muted loop playsinline preload="metadata">
+            <source src="https://res.cloudinary.com/dycutbccb/video/upload/v1778019039/SnapInsta.to_AQNsqWp048_y5Agka6YdM1ARWfriYEZueEQhGhwMFNigmg-bj326cKu5l7yCE4_kuNbVEfxVR53yOdkFXF2LROP1I-4YCqUdY3b5cv4_e0jomv.mp4" type="video/mp4">
+          </video>
+          <span class="job-caption">House Siding Soft Wash</span>
+          <button class="job-mute" aria-label="Unmute" data-mute-toggle>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="width: 18px; height: 18px;" data-icon-muted><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/><line x1="23" y1="9" x2="17" y2="15"/><line x1="17" y1="9" x2="23" y2="15"/></svg>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="width: 18px; height: 18px; display:none;" data-icon-unmuted><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/><path d="M15.54 8.46a5 5 0 0 1 0 7.07"/><path d="M19.07 4.93a10 10 0 0 1 0 14.14"/></svg>
+          </button>
+        </div>
       </div>
+
+      <div class="job-card">
+        <div class="job-tag-row">
+          <span class="job-tag">03 <span class="dot">·</span> Driveway <span class="dot">·</span> Maryland</span>
+        </div>
+        <div class="job-frame">
+          <video class="job-video" autoplay muted loop playsinline preload="metadata">
+            <source src="https://res.cloudinary.com/dycutbccb/video/upload/v1778011136/SnapInsta.to_AQNAV5pa8YupJ3rSJi4SjgXuPofjdfw1bmBqkCFR5o2zUqEQ1g6Gzk1Javj2v8-lmUAdYs_jwF269Qwdtn8sRZerEzTKS39trnrxJ6M_repaqv.mp4" type="video/mp4">
+          </video>
+          <span class="job-caption">Surface Cleaner Pass</span>
+          <button class="job-mute" aria-label="Unmute" data-mute-toggle>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="width: 18px; height: 18px;" data-icon-muted><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/><line x1="23" y1="9" x2="17" y2="15"/><line x1="17" y1="9" x2="23" y2="15"/></svg>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="width: 18px; height: 18px; display:none;" data-icon-unmuted><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/><path d="M15.54 8.46a5 5 0 0 1 0 7.07"/><path d="M19.07 4.93a10 10 0 0 1 0 14.14"/></svg>
+          </button>
+        </div>
+      </div>
+
+      <div class="job-card">
+        <div class="job-tag-row">
+          <span class="job-tag">04 <span class="dot">·</span> Patio <span class="dot">·</span> Maryland</span>
+        </div>
+        <div class="job-frame">
+          <video class="job-video" autoplay muted loop playsinline preload="metadata">
+            <source src="https://res.cloudinary.com/dycutbccb/video/upload/v1778010514/SnapInsta.to_AQMV67fELcj_fmGecj3WPO6oljC1qhGyUDieb6EFItIwpSk6m16QDlQe9NUN1wB7yckkP0436aVtdASVmapD-ED6p-5NWnH-BwCIDIo_xhptig.mp4" type="video/mp4">
+          </video>
+          <span class="job-caption">Patio Restoration</span>
+          <button class="job-mute" aria-label="Unmute" data-mute-toggle>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="width: 18px; height: 18px;" data-icon-muted><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/><line x1="23" y1="9" x2="17" y2="15"/><line x1="17" y1="9" x2="23" y2="15"/></svg>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="width: 18px; height: 18px; display:none;" data-icon-unmuted><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/><path d="M15.54 8.46a5 5 0 0 1 0 7.07"/><path d="M19.07 4.93a10 10 0 0 1 0 14.14"/></svg>
+          </button>
+        </div>
+      </div>
+
     </div>
   </div>
 </section>
@@ -1770,6 +1878,43 @@ footer {
     range.addEventListener('input', (e) => update(e.target.value));
     update(50);
   });
+
+  // Video mute toggle for job cards
+  document.querySelectorAll('[data-mute-toggle]').forEach(btn => {
+    btn.addEventListener('click', (e) => {
+      e.stopPropagation();
+      const frame = btn.closest('.job-frame');
+      const video = frame.querySelector('video');
+      if (!video) return;
+      // Mute all other videos first so only one plays sound at a time
+      if (video.muted) {
+        document.querySelectorAll('.job-video').forEach(v => {
+          v.muted = true;
+          const otherBtn = v.closest('.job-frame')?.querySelector('[data-mute-toggle]');
+          if (otherBtn) {
+            otherBtn.querySelector('[data-icon-muted]').style.display = '';
+            otherBtn.querySelector('[data-icon-unmuted]').style.display = 'none';
+          }
+        });
+        video.muted = false;
+        btn.querySelector('[data-icon-muted]').style.display = 'none';
+        btn.querySelector('[data-icon-unmuted]').style.display = '';
+      } else {
+        video.muted = true;
+        btn.querySelector('[data-icon-muted]').style.display = '';
+        btn.querySelector('[data-icon-unmuted]').style.display = 'none';
+      }
+    });
+  });
+
+  // Ensure hero video plays even if autoplay was blocked (rare edge case)
+  const heroVid = document.querySelector('.hero-video');
+  if (heroVid) {
+    const tryPlay = () => heroVid.play().catch(() => {});
+    tryPlay();
+    document.addEventListener('visibilitychange', () => { if (!document.hidden) tryPlay(); });
+    document.addEventListener('touchstart', tryPlay, { once: true, passive: true });
+  }
 </script>
 
 </body>
