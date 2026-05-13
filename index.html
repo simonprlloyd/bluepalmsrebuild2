@@ -47,12 +47,22 @@ img { max-width: 100%; display: block; }
 
 /* ============ HEADER ============ */
 header {
-  position: sticky;
+  position: fixed;
   top: 0;
+  left: 0;
+  right: 0;
   z-index: 100;
-  background: var(--navy);
-  border-bottom: 1px solid var(--line-dark);
+  background: transparent;
+  border-bottom: 1px solid transparent;
   padding: 1rem 1.25rem;
+  transition: background 0.3s ease, border-color 0.3s ease, backdrop-filter 0.3s ease;
+}
+
+header.scrolled {
+  background: rgba(4, 17, 29, 0.85);
+  backdrop-filter: blur(14px) saturate(150%);
+  -webkit-backdrop-filter: blur(14px) saturate(150%);
+  border-bottom-color: var(--line-dark);
 }
 
 .header-inner {
@@ -87,18 +97,21 @@ footer .brand-logo { height: 56px; }
   width: 46px;
   height: 46px;
   border-radius: 12px;
-  background: rgba(255, 255, 255, 0.04);
-  border: 1px solid var(--line-dark);
+  background: rgba(4, 17, 29, 0.35);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.18);
   display: flex;
   align-items: center;
   justify-content: center;
   color: var(--white);
   transition: background 0.2s, border-color 0.2s;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
 }
 
 .icon-btn:hover {
-  background: rgba(125, 211, 232, 0.1);
-  border-color: rgba(125, 211, 232, 0.35);
+  background: rgba(125, 211, 232, 0.25);
+  border-color: rgba(125, 211, 232, 0.5);
 }
 
 .icon-btn svg { width: 22px; height: 22px; }
@@ -191,13 +204,13 @@ footer .brand-logo { height: 56px; }
 /* ============ HERO ============ */
 .hero {
   position: relative;
-  min-height: 88vh;
+  min-height: 100vh;
   overflow: hidden;
   display: flex;
   align-items: center;
   justify-content: center;
   text-align: center;
-  padding: 4rem 1.5rem 6rem;
+  padding: 6rem 1.5rem 6rem;
 }
 
 .hero-video {
@@ -215,21 +228,9 @@ footer .brand-logo { height: 56px; }
   position: absolute;
   inset: 0;
   z-index: 1;
-  background:
-    radial-gradient(ellipse 60% 50% at 30% 20%, rgba(125, 211, 232, 0.15), transparent 60%),
-    radial-gradient(ellipse 60% 50% at 70% 80%, rgba(4, 17, 29, 0.4), transparent 60%),
-    linear-gradient(180deg, rgba(4, 17, 29, 0.55) 0%, rgba(4, 17, 29, 0.7) 60%, rgba(4, 17, 29, 0.9) 100%);
-}
-
-.hero-overlay::after {
-  content: '';
-  position: absolute;
-  inset: 0;
-  background-image:
-    linear-gradient(rgba(255, 255, 255, 0.025) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(255, 255, 255, 0.025) 1px, transparent 1px);
-  background-size: 60px 60px;
-  mask-image: radial-gradient(ellipse 80% 70% at 50% 50%, black, transparent 80%);
+  /* Intentionally minimal — let the video breathe.
+     Just a tiny bottom-fade so it blends into the section below. */
+  background: linear-gradient(180deg, transparent 0%, transparent 75%, rgba(4, 17, 29, 0.6) 100%);
   pointer-events: none;
 }
 
@@ -274,6 +275,7 @@ footer .brand-logo { height: 56px; }
   text-transform: uppercase;
   margin: 1.75rem 0 1.5rem;
   color: var(--white);
+  text-shadow: 0 2px 20px rgba(0, 0, 0, 0.6), 0 0 40px rgba(0, 0, 0, 0.4);
 }
 
 .hero h1 .sky { color: var(--sky); }
@@ -281,10 +283,11 @@ footer .brand-logo { height: 56px; }
 .hero-desc {
   font-size: 1.02rem;
   line-height: 1.6;
-  color: rgba(255, 255, 255, 0.82);
+  color: rgba(255, 255, 255, 0.95);
   max-width: 540px;
   margin: 0 auto;
   font-weight: 400;
+  text-shadow: 0 1px 12px rgba(0, 0, 0, 0.75);
 }
 
 /* ============ HERO OFFER CARD ============ */
@@ -1786,20 +1789,7 @@ footer {
   color: var(--navy);
   box-shadow: 0 4px 14px rgba(125, 211, 232, 0.35);
 }
-.season-tab .now-dot {
-  position: absolute;
-  top: 6px;
-  right: 6px;
-  width: 6px;
-  height: 6px;
-  border-radius: 50%;
-  background: #25d366;
-  box-shadow: 0 0 8px #25d366;
-  animation: pulseNow 2s ease-in-out infinite;
-}
-@keyframes pulseNow {
-  0%, 100% { transform: scale(1); opacity: 1; }
-  50% { transform: scale(1.4); opacity: 0.6; }
+50% { transform: scale(1.4); opacity: 0.6; }
 }
 
 .season-panel {
@@ -1839,30 +1829,6 @@ footer {
   text-transform: uppercase;
   color: var(--sky-deep);
 }
-.season-now-badge {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.4rem;
-  padding: 0.35rem 0.8rem;
-  border-radius: 100px;
-  background: rgba(37, 211, 102, 0.15);
-  border: 1px solid rgba(37, 211, 102, 0.4);
-  color: #4ade80;
-  font-size: 0.65rem;
-  font-weight: 700;
-  letter-spacing: 2px;
-  text-transform: uppercase;
-  margin-left: 0.5rem;
-}
-.season-now-badge .dot {
-  width: 6px;
-  height: 6px;
-  border-radius: 50%;
-  background: #25d366;
-  box-shadow: 0 0 8px #25d366;
-  animation: pulseNow 2s ease-in-out infinite;
-}
-
 .recs-grid {
   display: grid;
   grid-template-columns: 1fr;
@@ -2034,31 +2000,6 @@ footer {
 @keyframes shimmer {
   0% { background-position: 200% 0; }
   100% { background-position: -200% 0; }
-}
-
-/* Floating water droplets in hero */
-.droplets {
-  position: absolute;
-  inset: 0;
-  z-index: 1;
-  pointer-events: none;
-  overflow: hidden;
-}
-.droplet {
-  position: absolute;
-  width: 6px;
-  height: 6px;
-  border-radius: 50%;
-  background: radial-gradient(circle at 30% 30%, rgba(255,255,255,0.9), rgba(125,211,232,0.3));
-  box-shadow: 0 0 8px rgba(125,211,232,0.6);
-  animation: dropletFall linear infinite;
-  opacity: 0;
-}
-@keyframes dropletFall {
-  0% { transform: translateY(-20px) translateX(0); opacity: 0; }
-  10% { opacity: 0.8; }
-  90% { opacity: 0.4; }
-  100% { transform: translateY(110vh) translateX(20px); opacity: 0; }
 }
 
 /* Service card extra hover effects */
@@ -2461,7 +2402,7 @@ footer {
     animation: none;
     transition: none;
   }
-  .droplet, .marquee-track, .fab { animation: none; }
+  .marquee-track, .fab { animation: none; }
 }
 
 @media (min-width: 600px) {
@@ -2527,12 +2468,10 @@ footer {
   /* Seasonal section */
   .season-tabs { gap: 0.25rem; padding: 0.3rem; }
   .season-tab { font-size: 0.62rem; letter-spacing: 1.5px; padding: 0.6rem 0.3rem; }
-  .season-tab .now-dot { top: 4px; right: 4px; width: 5px; height: 5px; }
   .season-head { margin-bottom: 1.25rem; gap: 0.75rem; }
   .season-emoji { font-size: 2rem; }
   .season-title { font-size: 1.3rem; }
   .season-sub { font-size: 0.7rem; }
-  .season-now-badge { font-size: 0.58rem; padding: 0.3rem 0.65rem; letter-spacing: 1.5px; margin-left: 0; margin-top: 0.4rem; }
   .rec { padding: 1rem; gap: 0.75rem; }
   .rec-icon { width: 38px; height: 38px; font-size: 1.05rem; }
   .rec-name { font-size: 0.9rem; }
@@ -2938,7 +2877,6 @@ footer {
     <source src="https://res.cloudinary.com/dycutbccb/video/upload/v1778450241/SnapInsta.to_AQPcWfBfyd0DGgU3icGMJgijRnXFS5ORpfiLzKgvIIvdkWMDSosT9r-e_BeufzoPp-5_B29X9p2xvuQ7_OEkZdEr8NzqLPrah-WePlE_gw8xev.mp4" type="video/mp4">
   </video>
   <div class="hero-overlay"></div>
-  <div class="droplets" id="droplets"></div>
   <div class="hero-content">
     <span class="chip">
       <span class="chip-dot"></span>
@@ -2948,18 +2886,6 @@ footer {
     <p class="hero-desc">Full-service landscaping, soft wash, and yard care that gives your home back its curb appeal. Mulching, mowing, design, gutter cleaning, and plant-safe pressure washing — all from one local crew.</p>
   </div>
 </section>
-
-<!-- Offer card overlapping hero -->
-<div style="background: var(--navy); padding: 0 1.25rem;">
-  <div class="offer-card">
-    <div class="offer-head">
-      <span class="offer-eyebrow">First-Time Customers</span>
-      <button class="offer-close" aria-label="Dismiss">×</button>
-    </div>
-    <div class="offer-title">Get <span class="sky">20% Off</span> Any Service</div>
-    <a href="tel:+14104744838" class="offer-btn">Claim My 20% Off</a>
-  </div>
-</div>
 
 <!-- ============ STATS BAR ============ -->
 <section class="stats-section reveal">
@@ -3167,7 +3093,6 @@ footer {
           <div class="season-sub">March · April · May</div>
           <div class="season-title">Spring Reset</div>
         </div>
-        <span class="season-now-badge season-now-badge-spring" style="display:none;"><span class="dot"></span>Booking Now</span>
       </div>
       <div class="recs-grid">
         <div class="rec">
@@ -3217,7 +3142,6 @@ footer {
           <div class="season-sub">June · July · August</div>
           <div class="season-title">Summer Upkeep</div>
         </div>
-        <span class="season-now-badge season-now-badge-summer" style="display:none;"><span class="dot"></span>Booking Now</span>
       </div>
       <div class="recs-grid">
         <div class="rec">
@@ -3267,7 +3191,6 @@ footer {
           <div class="season-sub">September · October · November</div>
           <div class="season-title">Fall Prep</div>
         </div>
-        <span class="season-now-badge season-now-badge-fall" style="display:none;"><span class="dot"></span>Booking Now</span>
       </div>
       <div class="recs-grid">
         <div class="rec">
@@ -3317,7 +3240,6 @@ footer {
           <div class="season-sub">December · January · February</div>
           <div class="season-title">Winter Planning</div>
         </div>
-        <span class="season-now-badge season-now-badge-winter" style="display:none;"><span class="dot"></span>Booking Now</span>
       </div>
       <div class="recs-grid">
         <div class="rec">
@@ -3878,34 +3800,24 @@ footer {
     document.addEventListener('touchstart', tryPlay, { once: true, passive: true });
   }
 
-  // ============ SCROLL PROGRESS BAR ============
+  // ============ SCROLL PROGRESS BAR & HEADER STATE ============
   const progressEl = document.getElementById('scrollProgress');
+  const headerEl = document.querySelector('header');
   function updateProgress() {
     const h = document.documentElement;
     const scrolled = h.scrollTop;
     const max = h.scrollHeight - h.clientHeight;
     const pct = max > 0 ? (scrolled / max) * 100 : 0;
     progressEl.style.width = pct + '%';
+    // Snap header to navy when past the hero
+    if (scrolled > window.innerHeight * 0.85) {
+      headerEl.classList.add('scrolled');
+    } else {
+      headerEl.classList.remove('scrolled');
+    }
   }
   window.addEventListener('scroll', updateProgress, { passive: true });
   updateProgress();
-
-  // ============ HERO DROPLETS ============
-  const droplets = document.getElementById('droplets');
-  if (droplets && !window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
-    for (let i = 0; i < 14; i++) {
-      const d = document.createElement('div');
-      d.className = 'droplet';
-      const size = 4 + Math.random() * 8;
-      d.style.width = size + 'px';
-      d.style.height = size + 'px';
-      d.style.left = Math.random() * 100 + '%';
-      d.style.animationDuration = (8 + Math.random() * 8) + 's';
-      d.style.animationDelay = (Math.random() * 10) + 's';
-      d.style.opacity = String(0.4 + Math.random() * 0.5);
-      droplets.appendChild(d);
-    }
-  }
 
   // ============ SCROLL REVEAL (IntersectionObserver) ============
   const revealObserver = new IntersectionObserver((entries) => {
@@ -4059,14 +3971,6 @@ footer {
   }, 25000);
 
   // ============ SEASONAL TABS ============
-  function getCurrentSeason() {
-    const m = new Date().getMonth(); // 0-11
-    if (m >= 2 && m <= 4) return 'spring';   // Mar-May
-    if (m >= 5 && m <= 7) return 'summer';   // Jun-Aug
-    if (m >= 8 && m <= 10) return 'fall';    // Sep-Nov
-    return 'winter';                          // Dec-Feb
-  }
-  const currentSeason = getCurrentSeason();
   const tabs = document.querySelectorAll('.season-tab');
   const panels = document.querySelectorAll('.season-panel');
 
@@ -4075,23 +3979,12 @@ footer {
     panels.forEach(p => p.classList.toggle('active', p.dataset.season === name));
   }
 
-  // Mark the "now" tab with a pulsing dot
   tabs.forEach(tab => {
-    if (tab.dataset.season === currentSeason) {
-      const dot = document.createElement('span');
-      dot.className = 'now-dot';
-      dot.setAttribute('aria-label', 'Current season');
-      tab.appendChild(dot);
-    }
     tab.addEventListener('click', () => showSeason(tab.dataset.season));
   });
 
-  // Show "Booking Now" badge only on the current-season panel
-  const nowBadge = document.querySelector('.season-now-badge-' + currentSeason);
-  if (nowBadge) nowBadge.style.display = 'inline-flex';
-
-  // Open to the current season by default
-  showSeason(currentSeason);
+  // Default to spring tab open
+  showSeason('spring');
 
   // ============ DISCOUNT POPUP (scroll-triggered) ============
   const popup = document.getElementById('discountPopup');
