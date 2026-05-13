@@ -1,0 +1,1776 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>Blue Palms — Turning Yards Into Paradise · Pressure Washing & Yard Care</title>
+<meta name="description" content="Blue Palms — pressure washing, soft wash, and yard care that turns ordinary yards into paradise. House siding, driveways, patios, and fences. Townhome specialists.">
+<meta name="theme-color" content="#04111d">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;600;700;800;900&family=Inter:wght@300;400;500;600;700&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500;1,600&display=swap" rel="stylesheet">
+<style>
+:root {
+  --navy: #04111d;
+  --navy-2: #061826;
+  --navy-3: #0a2233;
+  --cream: #f3eee2;
+  --cream-2: #ede7d7;
+  --ink: #0a1218;
+  --ink-2: #1a2530;
+  --sky: #7dd3e8;
+  --sky-2: #5fc4dc;
+  --sky-deep: #4ab2cc;
+  --white: #ffffff;
+  --line-dark: rgba(255, 255, 255, 0.08);
+  --line-light: rgba(0, 0, 0, 0.08);
+  --muted-dark: rgba(255, 255, 255, 0.7);
+  --muted-light: rgba(10, 18, 24, 0.65);
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: 'Inter', sans-serif;
+  background: var(--navy);
+  color: var(--white);
+  line-height: 1.6;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+a { color: inherit; text-decoration: none; }
+button { font-family: inherit; cursor: pointer; border: none; background: none; }
+img { max-width: 100%; display: block; }
+
+/* ============ HEADER ============ */
+header {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: var(--navy);
+  border-bottom: 1px solid var(--line-dark);
+  padding: 1rem 1.25rem;
+}
+
+.header-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+}
+
+.brand svg { width: 38px; height: 44px; }
+
+.brand-name {
+  font-family: 'Archivo', sans-serif;
+  font-weight: 700;
+  font-size: 1.1rem;
+  line-height: 1;
+  letter-spacing: 1px;
+  color: var(--white);
+}
+
+.brand-name span {
+  display: block;
+  font-size: 0.95rem;
+  letter-spacing: 4px;
+  margin-top: 3px;
+}
+
+.header-actions { display: flex; gap: 0.6rem; }
+
+.icon-btn {
+  width: 46px;
+  height: 46px;
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid var(--line-dark);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--white);
+  transition: background 0.2s, border-color 0.2s;
+}
+
+.icon-btn:hover {
+  background: rgba(125, 211, 232, 0.1);
+  border-color: rgba(125, 211, 232, 0.35);
+}
+
+.icon-btn svg { width: 22px; height: 22px; }
+
+/* Mobile menu drawer */
+.menu-drawer {
+  position: fixed;
+  inset: 0;
+  background: rgba(4, 17, 29, 0.96);
+  backdrop-filter: blur(20px);
+  z-index: 99;
+  display: flex;
+  flex-direction: column;
+  padding: 6rem 2rem 2rem;
+  gap: 0.5rem;
+  transform: translateX(100%);
+  transition: transform 0.35s cubic-bezier(0.65, 0, 0.35, 1);
+}
+
+.menu-drawer.open { transform: translateX(0); }
+
+.menu-drawer a {
+  font-family: 'Archivo', sans-serif;
+  font-weight: 700;
+  font-size: 1.7rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: var(--white);
+  padding: 1rem 0;
+  border-bottom: 1px solid var(--line-dark);
+}
+
+.menu-drawer a:hover { color: var(--sky); }
+
+.menu-drawer .menu-cta {
+  margin-top: 1.5rem;
+  background: var(--sky);
+  color: var(--navy);
+  text-align: center;
+  border-radius: 8px;
+  border: none;
+  padding: 1.1rem;
+}
+
+/* ============ HERO ============ */
+.hero {
+  position: relative;
+  min-height: 88vh;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 4rem 1.5rem 6rem;
+}
+
+.hero-bg {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  background:
+    linear-gradient(180deg, rgba(4, 17, 29, 0.55) 0%, rgba(4, 17, 29, 0.85) 100%),
+    linear-gradient(135deg, #1e3a52 0%, #2a4a68 50%, #1a3045 100%);
+}
+
+.hero-bg::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(ellipse 60% 50% at 30% 20%, rgba(125, 211, 232, 0.18), transparent 60%),
+    radial-gradient(ellipse 60% 50% at 70% 80%, rgba(125, 211, 232, 0.1), transparent 60%);
+}
+
+.hero-bg::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(255, 255, 255, 0.025) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.025) 1px, transparent 1px);
+  background-size: 60px 60px;
+  mask-image: radial-gradient(ellipse 80% 70% at 50% 50%, black, transparent 80%);
+}
+
+.hero-content {
+  position: relative;
+  z-index: 2;
+  max-width: 880px;
+  width: 100%;
+}
+
+.chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  padding: 0.6rem 1.3rem;
+  border-radius: 100px;
+  background: rgba(4, 17, 29, 0.55);
+  border: 1px solid rgba(125, 211, 232, 0.35);
+  font-family: 'Inter', sans-serif;
+  font-size: 0.72rem;
+  font-weight: 500;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: var(--white);
+  backdrop-filter: blur(8px);
+}
+
+.chip-dot {
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  background: var(--sky);
+  box-shadow: 0 0 12px var(--sky);
+}
+
+.hero h1 {
+  font-family: 'Archivo', sans-serif;
+  font-weight: 900;
+  font-size: clamp(2.6rem, 9vw, 5.6rem);
+  line-height: 0.95;
+  letter-spacing: -1.5px;
+  text-transform: uppercase;
+  margin: 1.75rem 0 1.5rem;
+  color: var(--white);
+}
+
+.hero h1 .sky { color: var(--sky); }
+
+.hero-desc {
+  font-size: 1.02rem;
+  line-height: 1.6;
+  color: rgba(255, 255, 255, 0.82);
+  max-width: 540px;
+  margin: 0 auto;
+  font-weight: 400;
+}
+
+/* ============ HERO OFFER CARD ============ */
+.offer-card {
+  position: relative;
+  z-index: 3;
+  max-width: 880px;
+  margin: -3rem auto 0;
+  background: rgba(4, 17, 29, 0.78);
+  backdrop-filter: blur(14px);
+  border: 1px solid rgba(125, 211, 232, 0.2);
+  border-radius: 16px;
+  padding: 1.5rem 1.5rem 1.5rem;
+  box-shadow: 0 30px 60px rgba(0, 0, 0, 0.35);
+}
+
+.offer-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 1rem;
+}
+
+.offer-eyebrow {
+  font-size: 0.7rem;
+  font-weight: 500;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.55);
+}
+
+.offer-close {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: rgba(255, 255, 255, 0.6);
+  font-size: 1.2rem;
+  line-height: 1;
+}
+
+.offer-title {
+  font-family: 'Archivo', sans-serif;
+  font-weight: 800;
+  font-size: 1.4rem;
+  letter-spacing: -0.3px;
+  margin-bottom: 1.1rem;
+}
+
+.offer-title .sky { color: var(--sky); }
+
+.offer-btn {
+  display: block;
+  width: 100%;
+  background: var(--sky);
+  color: var(--navy);
+  text-align: center;
+  padding: 1.05rem;
+  border-radius: 10px;
+  font-family: 'Archivo', sans-serif;
+  font-weight: 700;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  font-size: 0.88rem;
+  transition: background 0.2s, transform 0.2s;
+}
+
+.offer-btn:hover {
+  background: var(--sky-2);
+  transform: translateY(-1px);
+}
+
+/* ============ SECTION SHELL ============ */
+.section {
+  padding: 5rem 1.5rem;
+  position: relative;
+}
+
+.section-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.eyebrow {
+  font-size: 0.72rem;
+  font-weight: 500;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  color: var(--sky-deep);
+  margin-bottom: 1rem;
+}
+
+.section h2 {
+  font-family: 'Archivo', sans-serif;
+  font-weight: 900;
+  font-size: clamp(2rem, 7vw, 3.4rem);
+  line-height: 0.98;
+  letter-spacing: -1px;
+  text-transform: uppercase;
+  margin-bottom: 1.2rem;
+}
+
+.section h2 .sky { color: var(--sky-deep); }
+
+.section .lede {
+  font-size: 1.02rem;
+  line-height: 1.7;
+  max-width: 580px;
+  margin-bottom: 3rem;
+}
+
+/* light vs dark sections */
+.section--light { background: var(--cream); color: var(--ink); }
+.section--light .eyebrow { color: var(--sky-deep); }
+.section--light h2 { color: var(--ink); }
+.section--light h2 .sky { color: var(--sky-deep); }
+.section--light .lede { color: var(--muted-light); }
+
+.section--dark { background: var(--navy); color: var(--white); }
+.section--dark h2 { color: var(--white); }
+.section--dark h2 .sky { color: var(--sky); }
+.section--dark .lede { color: var(--muted-dark); }
+
+/* subtle grid pattern overlay for dark sections */
+.section--dark.pattern { position: relative; }
+.section--dark.pattern::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(125, 211, 232, 0.04) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(125, 211, 232, 0.04) 1px, transparent 1px);
+  background-size: 50px 50px;
+  pointer-events: none;
+}
+.section--dark.pattern .section-inner { position: relative; z-index: 1; }
+
+/* diagonal stripe pattern for "why us" */
+.section--dark.stripes::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image: repeating-linear-gradient(
+    -45deg,
+    transparent 0,
+    transparent 22px,
+    rgba(255, 255, 255, 0.02) 22px,
+    rgba(255, 255, 255, 0.02) 44px
+  );
+  pointer-events: none;
+}
+.section--dark.stripes .section-inner { position: relative; z-index: 1; }
+
+/* ============ SERVICE CARDS ============ */
+.service-grid {
+  display: grid;
+  gap: 1.5rem;
+}
+
+.service-card {
+  background: var(--ink);
+  border-radius: 16px;
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.service-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+}
+
+.service-img {
+  position: relative;
+  height: 260px;
+  overflow: hidden;
+}
+
+.service-img-inner {
+  position: absolute;
+  inset: 0;
+  background-size: cover;
+  background-position: center;
+}
+
+.service-img-tag {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  padding: 0.5rem 1rem;
+  border-radius: 100px;
+  background: rgba(10, 18, 24, 0.75);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  font-size: 0.7rem;
+  font-weight: 500;
+  letter-spacing: 2.5px;
+  text-transform: uppercase;
+  color: var(--white);
+}
+
+.service-body {
+  padding: 1.75rem 1.5rem;
+  position: relative;
+}
+
+.service-body::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 1.5rem;
+  width: 50px;
+  height: 3px;
+  background: var(--sky);
+}
+
+.service-body h3 {
+  font-family: 'Archivo', sans-serif;
+  font-weight: 800;
+  font-size: 1.3rem;
+  letter-spacing: 0;
+  text-transform: uppercase;
+  color: var(--white);
+  margin: 0.5rem 0 0.75rem;
+}
+
+.service-body p {
+  color: rgba(255, 255, 255, 0.7);
+  font-size: 0.94rem;
+  line-height: 1.55;
+  margin-bottom: 1.1rem;
+}
+
+.service-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  font-family: 'Archivo', sans-serif;
+  font-weight: 600;
+  font-size: 0.78rem;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: var(--sky);
+}
+
+.service-link:hover { color: var(--sky-2); }
+
+/* ============ PROCESS STEPS ============ */
+.process-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+.process-step {
+  padding: 2rem 0;
+  border-top: 1px solid rgba(10, 18, 24, 0.1);
+}
+.process-step:first-child { border-top: none; padding-top: 0; }
+
+.process-num {
+  font-family: 'Archivo', sans-serif;
+  font-weight: 800;
+  font-size: 6rem;
+  line-height: 0.85;
+  letter-spacing: -3px;
+  color: transparent;
+  -webkit-text-stroke: 1.5px var(--sky);
+  margin-bottom: 1rem;
+}
+
+.process-step h3 {
+  font-family: 'Archivo', sans-serif;
+  font-weight: 800;
+  font-size: 1.3rem;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  color: var(--ink);
+  margin-bottom: 0.6rem;
+}
+
+.process-step p {
+  color: var(--muted-light);
+  font-size: 0.96rem;
+  line-height: 1.65;
+  max-width: 480px;
+}
+
+/* ============ PRICING / TOWNHOMES ============ */
+.price-grid {
+  display: grid;
+  gap: 1.25rem;
+}
+
+.price-card {
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 16px;
+  padding: 1.75rem 1.5rem;
+  position: relative;
+}
+
+.price-card.featured {
+  border-color: rgba(125, 211, 232, 0.3);
+  background: rgba(125, 211, 232, 0.03);
+}
+
+.price-badge {
+  display: inline-block;
+  padding: 0.45rem 1rem;
+  border-radius: 100px;
+  border: 1px solid rgba(125, 211, 232, 0.4);
+  background: rgba(125, 211, 232, 0.05);
+  font-size: 0.66rem;
+  font-weight: 500;
+  letter-spacing: 2.5px;
+  text-transform: uppercase;
+  color: var(--sky);
+  margin-bottom: 1rem;
+}
+
+.price-eyebrow {
+  font-size: 0.7rem;
+  font-weight: 500;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.5);
+  margin-bottom: 0.5rem;
+}
+
+.price-card h3 {
+  font-family: 'Archivo', sans-serif;
+  font-weight: 800;
+  font-size: 1.55rem;
+  text-transform: uppercase;
+  letter-spacing: 0;
+  margin-bottom: 1.25rem;
+}
+
+.price-amount {
+  display: flex;
+  align-items: baseline;
+  gap: 0.6rem;
+  margin-bottom: 1rem;
+}
+
+.price-num {
+  font-family: 'Archivo', sans-serif;
+  font-weight: 800;
+  font-size: 3.8rem;
+  line-height: 1;
+  letter-spacing: -2px;
+  color: var(--sky);
+}
+
+.price-per {
+  font-size: 0.75rem;
+  font-weight: 500;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.55);
+  position: relative;
+  padding-left: 0.85rem;
+}
+.price-per::before {
+  content: '/';
+  position: absolute;
+  left: 0;
+  color: rgba(255, 255, 255, 0.4);
+}
+
+.price-quote {
+  font-family: 'Archivo', sans-serif;
+  font-weight: 700;
+  font-size: 3.5rem;
+  line-height: 1;
+  letter-spacing: -1px;
+  color: var(--sky);
+  margin-bottom: 1rem;
+}
+
+.price-card p {
+  color: rgba(255, 255, 255, 0.7);
+  font-size: 0.94rem;
+  line-height: 1.6;
+  margin-bottom: 1.2rem;
+}
+
+.price-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  font-family: 'Archivo', sans-serif;
+  font-weight: 600;
+  font-size: 0.78rem;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: var(--sky);
+}
+
+.price-cta-card {
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 16px;
+  padding: 1.75rem 1.5rem;
+}
+
+.price-cta-card h4 {
+  font-family: 'Archivo', sans-serif;
+  font-weight: 700;
+  font-size: 0.7rem;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.55);
+  margin-bottom: 0.5rem;
+}
+
+.price-cta-card h3 {
+  font-family: 'Archivo', sans-serif;
+  font-weight: 800;
+  font-size: 1.2rem;
+  text-transform: uppercase;
+  color: var(--white);
+  margin-bottom: 1.25rem;
+  line-height: 1.25;
+}
+
+.btn-sky {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  background: var(--sky);
+  color: var(--navy);
+  padding: 0.95rem 1.5rem;
+  border-radius: 8px;
+  font-family: 'Archivo', sans-serif;
+  font-weight: 700;
+  font-size: 0.82rem;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  transition: background 0.2s, transform 0.15s;
+}
+
+.btn-sky:hover { background: var(--sky-2); transform: translateY(-1px); }
+
+/* ============ BEFORE/AFTER SLIDER ============ */
+.ba-block { margin-bottom: 2.5rem; }
+
+.ba-block-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  padding-bottom: 0.6rem;
+  margin-bottom: 1rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.ba-block-head .num-title {
+  display: flex;
+  align-items: baseline;
+  gap: 0.8rem;
+}
+
+.ba-block-head .num {
+  font-size: 0.72rem;
+  font-weight: 500;
+  letter-spacing: 2px;
+  color: rgba(255, 255, 255, 0.45);
+}
+
+.ba-block-head h3 {
+  font-family: 'Archivo', sans-serif;
+  font-weight: 800;
+  font-size: 1.15rem;
+  text-transform: uppercase;
+  color: var(--white);
+  letter-spacing: 0.5px;
+}
+
+.ba-block-head .tag {
+  font-size: 0.7rem;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.5);
+}
+
+.ba-frame {
+  position: relative;
+  border-radius: 12px;
+  overflow: hidden;
+  height: 280px;
+  user-select: none;
+  background: var(--ink);
+}
+
+.ba-img {
+  position: absolute;
+  inset: 0;
+  background-size: cover;
+  background-position: center;
+}
+
+.ba-img.after { clip-path: inset(0 0 0 50%); }
+
+.ba-label {
+  position: absolute;
+  top: 1rem;
+  padding: 0.45rem 1rem;
+  border-radius: 100px;
+  background: rgba(10, 18, 24, 0.7);
+  backdrop-filter: blur(8px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  font-size: 0.7rem;
+  font-weight: 500;
+  letter-spacing: 2.5px;
+  text-transform: uppercase;
+  color: var(--white);
+}
+
+.ba-label.before { left: 1rem; }
+.ba-label.after { right: 1rem; color: var(--sky); border-color: rgba(125, 211, 232, 0.3); background: rgba(4, 17, 29, 0.6); }
+
+.ba-handle {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 50%;
+  width: 2px;
+  background: var(--white);
+  transform: translateX(-50%);
+  pointer-events: none;
+}
+
+.ba-handle::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: var(--white);
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.35);
+}
+
+.ba-handle::after {
+  content: '‹›';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 1;
+  color: var(--navy);
+  font-size: 1.2rem;
+  font-weight: 800;
+  letter-spacing: -2px;
+}
+
+.ba-range {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  cursor: ew-resize;
+  margin: 0;
+  -webkit-appearance: none;
+  appearance: none;
+}
+
+/* ============ REAL JOBS (VIDEOS) ============ */
+.job-card {
+  border-radius: 16px;
+  overflow: hidden;
+  background: var(--ink);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  margin-bottom: 1.5rem;
+}
+
+.job-tag-row {
+  display: flex;
+  justify-content: center;
+  padding: 1.25rem 1rem 0;
+}
+
+.job-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  padding: 0.55rem 1.2rem;
+  border-radius: 100px;
+  background: rgba(10, 18, 24, 0.5);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  font-size: 0.7rem;
+  font-weight: 500;
+  letter-spacing: 2.5px;
+  text-transform: uppercase;
+  color: var(--white);
+}
+
+.job-tag .dot { color: rgba(255, 255, 255, 0.4); }
+
+.job-frame {
+  position: relative;
+  margin: 1rem;
+  border-radius: 12px;
+  overflow: hidden;
+  aspect-ratio: 3/4;
+  background: linear-gradient(180deg, #2c4054, #1a2530);
+}
+
+.job-frame-bg {
+  position: absolute;
+  inset: 0;
+  background-size: cover;
+  background-position: center;
+}
+
+.job-caption {
+  position: absolute;
+  bottom: 1rem;
+  left: 1rem;
+  padding: 0.55rem 1rem;
+  border-radius: 8px;
+  background: rgba(10, 18, 24, 0.85);
+  backdrop-filter: blur(8px);
+  font-family: 'Archivo', sans-serif;
+  font-weight: 700;
+  font-size: 0.82rem;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: var(--white);
+}
+
+.job-mute {
+  position: absolute;
+  bottom: 1rem;
+  right: 1rem;
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  background: rgba(10, 18, 24, 0.7);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--white);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+/* ============ INSTAGRAM SECTION ============ */
+.ig-section { padding: 5rem 1.5rem; background: var(--cream); }
+
+.ig-eyebrow {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+  margin-bottom: 1.25rem;
+}
+
+.ig-eyebrow .line {
+  width: 30px;
+  height: 1px;
+  background: var(--sky-deep);
+}
+
+.ig-eyebrow .text {
+  font-size: 0.72rem;
+  font-weight: 500;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  color: var(--sky-deep);
+}
+
+.ig-section h2 {
+  font-family: 'Cormorant Garamond', serif;
+  font-weight: 500;
+  font-size: clamp(2.4rem, 9vw, 4.2rem);
+  line-height: 1.05;
+  color: var(--ink);
+  text-transform: none;
+  letter-spacing: -0.5px;
+  margin-bottom: 1.5rem;
+}
+
+.ig-section h2 em {
+  font-style: italic;
+  font-weight: 400;
+}
+
+.ig-section h2 .sky {
+  color: var(--sky-deep);
+  font-style: italic;
+  font-weight: 400;
+}
+
+.ig-section p {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.15rem;
+  line-height: 1.55;
+  color: rgba(10, 18, 24, 0.65);
+  max-width: 500px;
+  margin-bottom: 2rem;
+}
+
+.ig-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.7rem;
+  width: 100%;
+  max-width: 480px;
+  background: var(--sky);
+  color: var(--navy);
+  padding: 1.2rem;
+  border-radius: 10px;
+  font-family: 'Archivo', sans-serif;
+  font-weight: 700;
+  font-size: 0.9rem;
+  letter-spacing: 2.5px;
+  text-transform: uppercase;
+  margin-bottom: 1.25rem;
+  transition: background 0.2s;
+}
+.ig-btn:hover { background: var(--sky-2); }
+
+.ig-or-call {
+  font-size: 0.78rem;
+  font-weight: 500;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: var(--muted-light);
+  margin-bottom: 2.5rem;
+}
+
+.ig-or-call .num { color: var(--sky-deep); }
+
+.ig-mockup {
+  max-width: 380px;
+  margin: 0 auto;
+  background: var(--white);
+  border-radius: 32px;
+  padding: 1.2rem 1.2rem 0;
+  border: 8px solid var(--ink);
+  box-shadow: 0 30px 60px rgba(0, 0, 0, 0.15);
+}
+
+.ig-mockup-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid var(--line-light);
+  font-size: 0.85rem;
+  color: var(--ink);
+}
+
+.ig-mockup-head .handle { font-weight: 600; }
+.ig-mockup-head .dots { letter-spacing: 2px; }
+
+.ig-mockup-body {
+  display: flex;
+  gap: 1rem;
+  padding: 1rem 0;
+}
+
+.ig-mockup-avatar {
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+  background: var(--ink);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  border: 2px solid var(--sky);
+}
+
+.ig-mockup-avatar svg { width: 36px; height: 42px; }
+
+.ig-mockup-stats {
+  flex: 1;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0.5rem;
+  align-content: center;
+}
+
+.ig-stat {
+  text-align: center;
+}
+
+.ig-stat .n {
+  font-weight: 700;
+  font-size: 1.1rem;
+  color: var(--ink);
+  line-height: 1;
+}
+
+.ig-stat .l {
+  font-size: 0.78rem;
+  color: var(--muted-light);
+}
+
+.ig-mockup-name {
+  font-weight: 700;
+  font-size: 1rem;
+  margin-bottom: 0.2rem;
+  color: var(--ink);
+}
+
+.ig-mockup-cat {
+  font-size: 0.85rem;
+  color: var(--muted-light);
+  margin-bottom: 0.5rem;
+}
+
+.ig-mockup-bio {
+  font-size: 0.85rem;
+  color: var(--ink);
+  line-height: 1.45;
+  padding-bottom: 1rem;
+}
+
+.ig-mockup-bio a { color: var(--sky-deep); }
+
+/* ============ FAB (chat) ============ */
+.fab {
+  position: fixed;
+  bottom: 1.25rem;
+  right: 1.25rem;
+  z-index: 95;
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  background: var(--sky);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--navy);
+  box-shadow: 0 10px 30px rgba(125, 211, 232, 0.4);
+  border: 3px solid var(--navy);
+  transition: transform 0.2s;
+}
+.fab:hover { transform: scale(1.06); }
+.fab svg { width: 28px; height: 28px; }
+
+.fab-badge {
+  position: absolute;
+  top: -4px;
+  right: -4px;
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  background: #ff3b30;
+  color: var(--white);
+  font-size: 0.7rem;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 2px solid var(--navy);
+}
+
+/* ============ FOOTER ============ */
+footer {
+  background: var(--navy);
+  padding: 3rem 1.5rem 2rem;
+  border-top: 1px solid var(--line-dark);
+}
+
+.footer-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.footer-brand { margin-bottom: 2rem; }
+
+.footer-tagline {
+  font-family: 'Archivo', sans-serif;
+  font-weight: 700;
+  font-size: 1.05rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: var(--white);
+  margin-top: 1rem;
+  max-width: 320px;
+}
+
+.footer-contact {
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+  margin-bottom: 2rem;
+}
+
+.footer-contact a {
+  color: var(--muted-dark);
+  font-size: 0.95rem;
+  transition: color 0.2s;
+}
+.footer-contact a:hover { color: var(--sky); }
+
+.footer-contact .phone {
+  color: var(--sky);
+  font-family: 'Archivo', sans-serif;
+  font-weight: 700;
+  font-size: 1.3rem;
+  letter-spacing: 0.5px;
+}
+
+.footer-bottom {
+  padding-top: 1.5rem;
+  border-top: 1px solid var(--line-dark);
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 0.5rem;
+  font-size: 0.75rem;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.4);
+}
+
+/* ============ HOA / MULTI-UNIT (inside pricing section) ============ */
+.hoa-card {
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 16px;
+  padding: 1.75rem 1.5rem;
+  margin-top: 1.25rem;
+}
+
+.hoa-eyebrow {
+  font-size: 0.7rem;
+  font-weight: 500;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.55);
+  margin-bottom: 0.6rem;
+}
+
+.hoa-card h3 {
+  font-family: 'Archivo', sans-serif;
+  font-weight: 800;
+  font-size: 1.2rem;
+  text-transform: uppercase;
+  line-height: 1.25;
+  margin-bottom: 1.25rem;
+}
+
+/* ============ PROPERTIES WE WASH (light) ============ */
+.props-ctas {
+  display: flex;
+  flex-direction: column;
+  gap: 0.85rem;
+  margin-bottom: 2.5rem;
+  max-width: 460px;
+}
+
+.props-ctas .btn-sky {
+  width: 100%;
+  justify-content: center;
+  padding: 1.1rem;
+}
+
+.btn-outline {
+  display: inline-flex;
+  width: 100%;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid rgba(10, 18, 24, 0.25);
+  color: var(--ink);
+  padding: 1.05rem 1.5rem;
+  border-radius: 8px;
+  font-family: 'Archivo', sans-serif;
+  font-weight: 700;
+  font-size: 0.82rem;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  background: transparent;
+  transition: background 0.2s, border-color 0.2s;
+}
+.btn-outline:hover { background: rgba(10, 18, 24, 0.04); border-color: rgba(10, 18, 24, 0.5); }
+
+.props-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1px;
+  background: rgba(10, 18, 24, 0.12);
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.props-grid div {
+  background: var(--cream);
+  padding: 1.2rem 1.1rem;
+}
+
+.props-grid h4 {
+  font-family: 'Archivo', sans-serif;
+  font-weight: 800;
+  font-size: 0.9rem;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  color: var(--ink);
+  margin-bottom: 0.4rem;
+  line-height: 1.2;
+}
+
+.props-grid .meta {
+  font-size: 0.66rem;
+  font-weight: 500;
+  letter-spacing: 2.5px;
+  text-transform: uppercase;
+  color: var(--sky-deep);
+}
+
+/* ============ WHY US LIST ============ */
+.why-list {
+  display: flex;
+  flex-direction: column;
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  border-radius: 16px;
+  overflow: hidden;
+}
+
+.why-row {
+  padding: 1.5rem 1.5rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.06);
+}
+.why-row:first-child { border-top: none; }
+
+.why-num {
+  font-size: 0.72rem;
+  font-weight: 500;
+  letter-spacing: 3px;
+  color: rgba(255, 255, 255, 0.45);
+  margin-bottom: 0.6rem;
+}
+
+.why-row h3 {
+  font-family: 'Archivo', sans-serif;
+  font-weight: 800;
+  font-size: 1.15rem;
+  text-transform: uppercase;
+  color: var(--white);
+  letter-spacing: 0.5px;
+  margin-bottom: 0.5rem;
+}
+
+.why-row p {
+  color: rgba(255, 255, 255, 0.7);
+  font-size: 0.94rem;
+  line-height: 1.6;
+}
+
+/* ============ DESKTOP / RESPONSIVE ============ */
+@media (min-width: 768px) {
+  .service-grid { grid-template-columns: repeat(2, 1fr); }
+  .price-grid { grid-template-columns: repeat(2, 1fr); }
+  .price-cta-card.full { grid-column: span 2; }
+  .ba-frame { height: 420px; }
+  .props-grid { grid-template-columns: repeat(4, 1fr); }
+  .footer-grid { display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 3rem; }
+  .props-ctas { flex-direction: row; }
+  .props-ctas .btn-sky, .props-ctas .btn-outline { width: auto; }
+}
+
+@media (min-width: 1024px) {
+  .service-grid { grid-template-columns: repeat(3, 1fr); }
+  .section { padding: 7rem 2rem; }
+  .ig-section { padding: 7rem 2rem; }
+  .hero { padding: 6rem 2rem 8rem; }
+}
+</style>
+</head>
+<body>
+
+<!-- ============ HEADER ============ -->
+<header>
+  <div class="header-inner">
+    <a href="#" class="brand">
+      <svg viewBox="0 0 38 44" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+        <path d="M19 44 Q18 32 19 22" stroke="#7dd3e8" stroke-width="2" stroke-linecap="round"/>
+        <path d="M19 22 Q8 16 4 8 Q12 12 19 18" fill="#7dd3e8"/>
+        <path d="M19 22 Q30 16 34 8 Q26 12 19 18" fill="#ffffff"/>
+        <path d="M19 22 Q10 24 3 30 Q12 26 19 24" fill="#7dd3e8"/>
+        <path d="M19 22 Q28 24 35 30 Q26 26 19 24" fill="#ffffff"/>
+        <path d="M19 22 Q14 14 14 4 Q18 10 19 18" fill="#ffffff"/>
+        <path d="M19 22 Q24 14 24 4 Q20 10 19 18" fill="#7dd3e8"/>
+      </svg>
+      <div class="brand-name">BLUE<span>PALMS</span></div>
+    </a>
+    <div class="header-actions">
+      <a href="tel:+14104744838" class="icon-btn" aria-label="Call">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+      </a>
+      <button class="icon-btn" id="menuBtn" aria-label="Menu">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+      </button>
+    </div>
+  </div>
+</header>
+
+<nav class="menu-drawer" id="menuDrawer">
+  <a href="#services">Services</a>
+  <a href="#townhomes">Townhomes</a>
+  <a href="#process">Process</a>
+  <a href="#before-after">Before / After</a>
+  <a href="#work">Our Work</a>
+  <a href="#why">Why Blue Palms</a>
+  <a href="tel:+14104744838" class="menu-cta">Get a Quote</a>
+</nav>
+
+<!-- ============ HERO ============ -->
+<section class="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-content">
+    <span class="chip">
+      <span class="chip-dot"></span>
+      Pressure · Soft Wash · Yard Care
+    </span>
+    <h1>Turning Yards<br>Into <span class="sky">Paradise.</span></h1>
+    <p class="hero-desc">Full-exterior pressure washing, plant-safe soft wash, and yard cleanup that gives your home back its curb appeal — without damaging siding, paint, or landscape beds.</p>
+  </div>
+</section>
+
+<!-- Offer card overlapping hero -->
+<div style="background: var(--navy); padding: 0 1.25rem;">
+  <div class="offer-card">
+    <div class="offer-head">
+      <span class="offer-eyebrow">First-Time Customers</span>
+      <button class="offer-close" aria-label="Dismiss">×</button>
+    </div>
+    <div class="offer-title">Get <span class="sky">20% Off</span> Your First Wash</div>
+    <a href="tel:+14104744838" class="offer-btn">Claim My 20% Off</a>
+  </div>
+</div>
+
+<!-- ============ SERVICES ============ -->
+<section class="section section--light" id="services">
+  <div class="section-inner">
+    <div class="eyebrow">What We Wash</div>
+    <h2>Cleaner Home. <span class="sky">Better Curb Appeal.</span></h2>
+    <p class="lede">Full exterior cleaning for homes, townhomes, and HOA properties — done with the right pressure for every surface.</p>
+
+    <div class="service-grid">
+      <article class="service-card">
+        <div class="service-img">
+          <div class="service-img-inner" style="background-image: linear-gradient(135deg, #8a9aa8 0%, #6b7d8e 100%);"></div>
+          <span class="service-img-tag">Soft Wash · Plant Safe</span>
+        </div>
+        <div class="service-body">
+          <h3>House Siding Soft Wash</h3>
+          <p>Low-pressure, plant-safe soft wash that lifts algae, mildew, and dust off vinyl, brick, stucco, and Hardie. Looks new again — no streaks, no damage.</p>
+          <a href="tel:+14104744838" class="service-link">Get a Price →</a>
+        </div>
+      </article>
+
+      <article class="service-card">
+        <div class="service-img">
+          <div class="service-img-inner" style="background-image: linear-gradient(135deg, #4a5d6e 0%, #2e3e4d 100%);"></div>
+          <span class="service-img-tag">Concrete · Pavers</span>
+        </div>
+        <div class="service-body">
+          <h3>Driveways & Sidewalks</h3>
+          <p>Surface-cleaner pressure washing on concrete, pavers, and stamped finishes. Tire marks, oil spots, and ground-in grime — gone in one pass.</p>
+          <a href="tel:+14104744838" class="service-link">Get a Price →</a>
+        </div>
+      </article>
+
+      <article class="service-card">
+        <div class="service-img">
+          <div class="service-img-inner" style="background-image: linear-gradient(135deg, #5a4a3e 0%, #3a2e26 100%);"></div>
+          <span class="service-img-tag">Wood · Stone</span>
+        </div>
+        <div class="service-body">
+          <h3>Patios, Decks & Fences</h3>
+          <p>Brick patios, wood decks, stone walls, and fence panels — restored to their natural color with pressure dialed to the material.</p>
+          <a href="tel:+14104744838" class="service-link">Get a Price →</a>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ============ TOWNHOME PRICING ============ -->
+<section class="section section--dark pattern" id="townhomes">
+  <div class="section-inner">
+    <div class="eyebrow">Flat Rates</div>
+    <h2>Townhome <span class="sky">Specials.</span></h2>
+    <p class="lede">Built for townhomes & end units. Book your row together and we cut the per-unit rate. No surprise add-ons, ever.</p>
+
+    <div class="price-grid">
+      <article class="price-card">
+        <div class="price-eyebrow">Exterior Wash</div>
+        <h3>Middle Unit</h3>
+        <div class="price-amount">
+          <div class="price-num">$200</div>
+          <div class="price-per">Wash</div>
+        </div>
+        <p>Townhome / interior row — soft wash siding, driveway, and walkway.</p>
+        <a href="tel:+14104744838" class="price-link">Book This →</a>
+      </article>
+
+      <article class="price-card featured">
+        <div class="price-badge">Most Booked</div>
+        <div class="price-eyebrow">Exterior Wash</div>
+        <h3>End Unit</h3>
+        <div class="price-amount">
+          <div class="price-num">$250</div>
+          <div class="price-per">Wash</div>
+        </div>
+        <p>Townhome end / corner — adds the side wall and side fence run.</p>
+        <a href="tel:+14104744838" class="price-link">Book This →</a>
+      </article>
+
+      <article class="price-card">
+        <div class="price-eyebrow">Full Exterior</div>
+        <h3>Custom Home</h3>
+        <div class="price-quote">Quote</div>
+        <p>Single-family homes, decks, pool decks, oversized driveways.</p>
+        <a href="tel:+14104744838" class="price-link">Book This →</a>
+      </article>
+
+      <div class="hoa-card">
+        <div class="hoa-eyebrow">HOA / Multi-Unit</div>
+        <h3>Wash a whole row — get a community discount.</h3>
+        <a href="tel:+14104744838" class="btn-sky">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="width: 16px; height: 16px;"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+          Request a Bid
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ PROCESS ============ -->
+<section class="section section--light" id="process">
+  <div class="section-inner">
+    <div class="eyebrow">The Process</div>
+    <h2>From Dingy To<br><span class="sky">Paradise.</span></h2>
+
+    <div class="process-list" style="margin-top: 2rem;">
+      <div class="process-step">
+        <div class="process-num">01</div>
+        <h3>Send a Photo</h3>
+        <p>Text a couple of pictures or your address. Most quotes back within an hour — no walkthrough needed.</p>
+      </div>
+      <div class="process-step">
+        <div class="process-num">02</div>
+        <h3>Lock the Price</h3>
+        <p>Flat quote up front. Townhomes are $200 middle / $250 end. No upsells, no surprise fees on the day of.</p>
+      </div>
+      <div class="process-step">
+        <div class="process-num">03</div>
+        <h3>Pick a Day</h3>
+        <p>Most washes scheduled within the week. We work weather windows so equipment, soaps, and timing are right.</p>
+      </div>
+      <div class="process-step">
+        <div class="process-num">04</div>
+        <h3>Paradise Mode</h3>
+        <p>We rinse landscape beds, protect plants, and sweep up. You come home to a yard that looks brand new.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ BEFORE / AFTER ============ -->
+<section class="section section--dark pattern" id="before-after">
+  <div class="section-inner">
+    <div class="eyebrow">Before / After</div>
+    <h2>Drag to see<br>the <span class="sky">Difference.</span></h2>
+    <a href="tel:+14104744838" class="service-link" style="margin-bottom: 1.5rem;">Start a Project →</a>
+    <p class="lede">Grab the slider on any frame and pull left or right. Real homes, one-pass cleans — touch, mouse, and keyboard friendly.</p>
+
+    <div class="ba-block">
+      <div class="ba-block-head">
+        <div class="num-title">
+          <span class="num">01</span>
+          <h3>House Siding</h3>
+        </div>
+        <span class="tag">Soft Wash</span>
+      </div>
+      <div class="ba-frame" data-ba>
+        <div class="ba-img before" style="background: linear-gradient(135deg, #4a5b4a, #2d3a2d);"></div>
+        <div class="ba-img after" style="background: linear-gradient(135deg, #a8c0d4, #6e8aa0);"></div>
+        <span class="ba-label before">Before</span>
+        <span class="ba-label after">After</span>
+        <div class="ba-handle"></div>
+        <input type="range" class="ba-range" min="0" max="100" value="50" aria-label="Before / After">
+      </div>
+    </div>
+
+    <div class="ba-block">
+      <div class="ba-block-head">
+        <div class="num-title">
+          <span class="num">02</span>
+          <h3>Driveway</h3>
+        </div>
+        <span class="tag">Surface Clean</span>
+      </div>
+      <div class="ba-frame" data-ba>
+        <div class="ba-img before" style="background: linear-gradient(135deg, #5a5550, #36312c);"></div>
+        <div class="ba-img after" style="background: linear-gradient(135deg, #d4cab5, #9a8e75);"></div>
+        <span class="ba-label before">Before</span>
+        <span class="ba-label after">After</span>
+        <div class="ba-handle"></div>
+        <input type="range" class="ba-range" min="0" max="100" value="50" aria-label="Before / After">
+      </div>
+    </div>
+
+    <div class="ba-block">
+      <div class="ba-block-head">
+        <div class="num-title">
+          <span class="num">03</span>
+          <h3>Patio</h3>
+        </div>
+        <span class="tag">Brick · Stone</span>
+      </div>
+      <div class="ba-frame" data-ba>
+        <div class="ba-img before" style="background: linear-gradient(135deg, #4d4438, #2e2820);"></div>
+        <div class="ba-img after" style="background: linear-gradient(135deg, #b87858, #8a5440);"></div>
+        <span class="ba-label before">Before</span>
+        <span class="ba-label after">After</span>
+        <div class="ba-handle"></div>
+        <input type="range" class="ba-range" min="0" max="100" value="50" aria-label="Before / After">
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ REAL JOBS ============ -->
+<section class="section section--dark pattern" id="work">
+  <div class="section-inner">
+    <div class="eyebrow">Our Work</div>
+    <h2>Real Jobs. <span class="sky">Real Results.</span></h2>
+    <p class="lede">Pulled straight from the job site — no edits, no filters. Volume up for the satisfying part.</p>
+
+    <div class="job-card">
+      <div class="job-tag-row">
+        <span class="job-tag">01 <span class="dot">·</span> Townhome <span class="dot">·</span> Maryland</span>
+      </div>
+      <div class="job-frame">
+        <div class="job-frame-bg" style="background: linear-gradient(180deg, #3a5870, #1a2d3e);"></div>
+        <span class="job-caption">Driveway Strip Pass</span>
+        <button class="job-mute" aria-label="Unmute">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="width: 18px; height: 18px;"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/><line x1="23" y1="9" x2="17" y2="15"/><line x1="17" y1="9" x2="23" y2="15"/></svg>
+        </button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ INSTAGRAM ============ -->
+<section class="ig-section" id="portfolio">
+  <div class="section-inner">
+    <div class="ig-eyebrow">
+      <span class="line"></span>
+      <span class="text">The Portfolio</span>
+    </div>
+    <h2>See it <em>all</em> on<br><span class="sky">Instagram.</span></h2>
+    <p><em>Every project, every install, every detail — documented and shared. The work speaks for itself.</em></p>
+
+    <a href="https://instagram.com/bluepalmslandscape_" target="_blank" rel="noopener" class="ig-btn">
+      @BLUEPALMSLANDSCAPE_
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="width: 18px; height: 18px;"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+    </a>
+    <div class="ig-or-call">Or call <span class="num">(410) 474-4838</span></div>
+
+    <div class="ig-mockup">
+      <div class="ig-mockup-head">
+        <span>‹</span>
+        <span class="handle">bluepalmslandscape_</span>
+        <span class="dots">⋯</span>
+      </div>
+      <div class="ig-mockup-body">
+        <div class="ig-mockup-avatar">
+          <svg viewBox="0 0 36 42" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M18 42 Q17 30 18 20" stroke="#7dd3e8" stroke-width="2" stroke-linecap="round"/>
+            <path d="M18 20 Q7 14 3 6 Q11 10 18 16" fill="#7dd3e8"/>
+            <path d="M18 20 Q29 14 33 6 Q25 10 18 16" fill="#ffffff"/>
+            <path d="M18 20 Q9 22 2 28 Q11 24 18 22" fill="#7dd3e8"/>
+            <path d="M18 20 Q27 22 34 28 Q25 24 18 22" fill="#ffffff"/>
+          </svg>
+        </div>
+        <div class="ig-mockup-stats">
+          <div class="ig-stat"><div class="n">34</div><div class="l">posts</div></div>
+          <div class="ig-stat"><div class="n">159</div><div class="l">followers</div></div>
+          <div class="ig-stat"><div class="n">15</div><div class="l">following</div></div>
+        </div>
+      </div>
+      <div class="ig-mockup-name">Blue Palms LLC.</div>
+      <div class="ig-mockup-cat">Landscape Company</div>
+      <div class="ig-mockup-bio">
+        📞 410.474.4838<br>
+        Transforming outdoor spaces 🌿 | Landscaping • Soft Washing • Gutter Cleaning • Mulching • Design • Serving <strong>Maryland Area</strong> 📍<br>
+        <a href="#">🔗 linktr.ee/BluePalmsLandscaping_</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ WHY US ============ -->
+<section class="section section--dark stripes" id="why">
+  <div class="section-inner">
+    <div class="eyebrow">Why Blue Palms</div>
+    <h2>Pro Tools. <span class="sky">Plant-Safe Soap.</span></h2>
+    <p class="lede">We treat every property like the camera is rolling. Soft wash where you need it, surface cleaner where you don't, and a clean rinse on every bed and walkway when we leave.</p>
+
+    <div class="why-list">
+      <div class="why-row">
+        <div class="why-num">01</div>
+        <h3>Fast & Reliable</h3>
+        <p>Quotes within the hour, washes booked the same week. We show up when we say we will, with the right rig for the surface.</p>
+      </div>
+      <div class="why-row">
+        <div class="why-num">02</div>
+        <h3>Professional Equipment</h3>
+        <p>Commercial-grade hot-water rigs, surface cleaners, and dosed soft-wash chemistry — not a hardware-store wand.</p>
+      </div>
+      <div class="why-row">
+        <div class="why-num">03</div>
+        <h3>No-Damage Soft Wash</h3>
+        <p>Plant-safe biodegradable soaps and dialed-in pressure. We rinse beds, protect plants, and never blast paint.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ PROPERTIES WE WASH ============ -->
+<section class="section section--light" id="properties">
+  <div class="section-inner">
+    <div class="eyebrow">Properties We Wash</div>
+    <h2>Built for <span class="sky">Townhomes</span><br>& <span class="sky">HOAs.</span></h2>
+    <p class="lede">From a single end unit to a full row of townhomes, an HOA common area, or a custom home — we scale the rig to the job. Send the address, get the price.</p>
+
+    <div class="props-ctas">
+      <a href="tel:+14104744838" class="btn-sky">Call Now</a>
+      <a href="sms:+14104744838" class="btn-outline">Text Us</a>
+    </div>
+
+    <div class="props-grid">
+      <div>
+        <h4>Townhome Communities</h4>
+        <div class="meta">Specialty</div>
+      </div>
+      <div>
+        <h4>HOA Properties</h4>
+        <div class="meta">Specialty</div>
+      </div>
+      <div>
+        <h4>Single-Family Homes</h4>
+        <div class="meta">Specialty</div>
+      </div>
+      <div>
+        <h4>Driveways & Walks</h4>
+        <div class="meta">Standard</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FOOTER ============ -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-brand">
+      <a href="#" class="brand">
+        <svg viewBox="0 0 38 44" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <path d="M19 44 Q18 32 19 22" stroke="#7dd3e8" stroke-width="2" stroke-linecap="round"/>
+          <path d="M19 22 Q8 16 4 8 Q12 12 19 18" fill="#7dd3e8"/>
+          <path d="M19 22 Q30 16 34 8 Q26 12 19 18" fill="#ffffff"/>
+          <path d="M19 22 Q10 24 3 30 Q12 26 19 24" fill="#7dd3e8"/>
+          <path d="M19 22 Q28 24 35 30 Q26 26 19 24" fill="#ffffff"/>
+        </svg>
+        <div class="brand-name">BLUE<span>PALMS</span></div>
+      </a>
+      <p class="footer-tagline">Pressure Washing & Yard Care. Maryland.</p>
+    </div>
+
+    <div class="footer-contact">
+      <a href="tel:+14104744838" class="phone">(410) 474-4838</a>
+      <a href="mailto:hello@bluepalmslandscape.com">hello@bluepalmslandscape.com</a>
+      <a href="https://instagram.com/bluepalmslandscape_" target="_blank" rel="noopener">@bluepalmslandscape_</a>
+    </div>
+
+    <div class="footer-bottom">
+      <span>© 2026 Blue Palms LLC.</span>
+      <span>Serving the DMV / Maryland Area</span>
+    </div>
+  </div>
+</footer>
+
+<!-- ============ FLOATING CHAT FAB ============ -->
+<a href="tel:+14104744838" class="fab" aria-label="Chat or call">
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+  <span class="fab-badge">1</span>
+</a>
+
+<script>
+  // Menu drawer
+  const menuBtn = document.getElementById('menuBtn');
+  const menuDrawer = document.getElementById('menuDrawer');
+  menuBtn.addEventListener('click', () => menuDrawer.classList.toggle('open'));
+  menuDrawer.querySelectorAll('a').forEach(a => a.addEventListener('click', () => menuDrawer.classList.remove('open')));
+
+  // Offer dismiss
+  document.querySelector('.offer-close')?.addEventListener('click', (e) => {
+    e.currentTarget.closest('.offer-card').style.display = 'none';
+  });
+
+  // Before/After slider
+  document.querySelectorAll('[data-ba]').forEach(frame => {
+    const after = frame.querySelector('.ba-img.after');
+    const handle = frame.querySelector('.ba-handle');
+    const range = frame.querySelector('.ba-range');
+    const update = (val) => {
+      after.style.clipPath = `inset(0 0 0 ${val}%)`;
+      handle.style.left = `${val}%`;
+    };
+    range.addEventListener('input', (e) => update(e.target.value));
+    update(50);
+  });
+</script>
+
+</body>
+</html>
